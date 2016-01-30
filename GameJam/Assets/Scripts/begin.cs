@@ -15,13 +15,14 @@ public class begin : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        //rot = new Quaternion(0, 0, 0, 0);
+
+		//rot = new Quaternion (redCandle.transform.rotation.x, redCandle.transform.rotation.y, redCandle.transform.rotation.z, 0.0);
+
+		//rot = new Quaternion (0.0f, 90.0f, 90.0f, 0.0f);
         //Star();
         SetUpPeace();
-        //SetUpHeart();
-        Instantiate(redCandle, PeaceArray[candleNum], rot);
-        //for (int i = 0; i < 20; i++)
-        //    Instantiate(redCandle, HeartArray[i], rot);
+		Instantiate(redCandle, PeaceArray[candleNum],   rot);
+
         isRedCandle = false;
         candleNum++;
 	}
