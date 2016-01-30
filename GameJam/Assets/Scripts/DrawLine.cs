@@ -33,6 +33,7 @@ public class DrawLine : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector3 bluePixelPos = camera.WorldToScreenPoint(bluePlayer.transform.position);
+		Debug.Log(bluePixelPos);
 		texture.SetPixel(System.Convert.ToInt32(bluePixelPos.x), System.Convert.ToInt32(bluePixelPos.y), Color.blue);
 		texture.Apply();
 	}

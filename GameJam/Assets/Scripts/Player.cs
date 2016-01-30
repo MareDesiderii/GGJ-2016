@@ -47,13 +47,15 @@ public class Player : MonoBehaviour {
 
         moveDirection = new Vector3(horDir, 0, vertDir);
         moveDirection = transform.TransformDirection(moveDirection);
-        moveDirection *= speed;
+        if (!CompareDistanceToLight())
+            moveDirection *= speed / 10.0f;
+        else
+            moveDirection *= speed;
 
         // moveDirection.y -= gravity * Time.deltaTime;
          controller.Move(moveDirection * Time.deltaTime);
 
-         if (!CompareDistanceToLight())
-             Destroy(gameObject);
+         
 	
 	}
 
@@ -68,5 +70,12 @@ public class Player : MonoBehaviour {
             return true;
         else
             return false;
+    }
+    void DragEm()
+    {
+        if (playerID == 1)
+        {
+            //FindObjectOfType<Player>
+        }
     }
 }
