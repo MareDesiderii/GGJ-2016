@@ -19,8 +19,12 @@ public class Melt : MonoBehaviour {
 
 			transform.localScale = vt3;
 
-			if (vt3.y <= 0)
-				Destroy (this);
+			if (vt3.y <= 0) {
+				Debug.Log ("Time to Destroy");
+				Debug.Log ("THIS " + this);
+				Destroy (this.gameObject);
+
+			}
 
 		}
 
