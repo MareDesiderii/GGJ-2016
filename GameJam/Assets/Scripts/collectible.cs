@@ -10,11 +10,6 @@ public class collectible : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        bool b = Input.GetButton("Horizontal");
-        float f = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
-        Debug.Log(b.ToString());
-        Debug.Log(f.ToString());
 
 	}
 

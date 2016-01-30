@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
+    public int playerID = 1;
     public float speed = 10.0f;
     public float gravity = 20.0f;
 
@@ -11,6 +12,9 @@ public class Player : MonoBehaviour {
     private Vector3 moveDirection;
     private CharacterController controller;
 
+    private string horizontal;
+    private string vertical;
+
 	// Use this for initialization
 	void Start () {
         controller = GetComponent<CharacterController>();
@@ -18,11 +22,20 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        horDir = Input.GetAxis("Horizontal");
-        vertDir = Input.GetAxis("Vertical");
 
-        Debug.Log("Hor: " + horDir);
-        Debug.Log("Ver: " + vertDir);
+        if (playerID == 1)
+        {
+            horizontal = "Horizontal";
+            vertical = "Vertical";
+        }
+        else
+        {
+            horizontal = "Horizontal2";
+            vertical = "Vertical2";
+        }
+        horDir = Input.GetAxis(horizontal);
+        vertDir = Input.GetAxis(vertical);
+
         moveDirection = new Vector3(horDir, 0, vertDir);
         moveDirection = transform.TransformDirection(moveDirection);
         moveDirection *= speed;
