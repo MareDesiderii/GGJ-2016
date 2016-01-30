@@ -580,7 +580,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 1
-  m_Color: {r: 1, g: 0, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.96
   m_Range: 10
   m_SpotAngle: 30
@@ -727,7 +727,7 @@ MonoBehaviour:
   speed: 5
   gravity: 20
   otherLight: {fileID: 913886137}
-  maxDist: 1
+  maxDist: 0.7
 --- !u!1 &1827430552
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,7 +1010,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1
-  m_Radius: 0.5
+  m_Radius: 0.7
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
