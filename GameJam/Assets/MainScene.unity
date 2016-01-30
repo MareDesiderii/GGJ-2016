@@ -230,7 +230,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 591899268}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.25, z: 0}
+  m_LocalPosition: {x: 7.39, y: 0.25, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -295,8 +295,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 2
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 0.534}
+  m_Intensity: 0.45
   m_Range: 2
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -315,7 +315,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_Lightmapping: 2
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0.61
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 0.5, y: 0.5}
@@ -498,8 +498,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerID: 2
-  speed: 10
+  speed: 5
   gravity: 20
+  otherLight: {fileID: 913886137}
+  maxDist: 1
 --- !u!1 &1939123182
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,6 +514,7 @@ GameObject:
   - 92: {fileID: 1939123185}
   - 124: {fileID: 1939123184}
   - 81: {fileID: 1939123183}
+  - 114: {fileID: 1939123188}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -586,6 +589,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &1939123188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1939123182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f6bd6adb0a8a1c4f981c04fe5772da9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redCandle: {fileID: 150298, guid: b94aaa839664bda4eb649b4f74ba6568, type: 2}
+  blueCandle: {fileID: 111854, guid: cfdc159afcde2c94290aeb41313564e6, type: 2}
 --- !u!1 &2049569459
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,8 +709,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerID: 1
-  speed: 10
+  speed: 5
   gravity: 20
+  otherLight: {fileID: 506235341}
+  maxDist: 1
 --- !u!1 &2095849881
 GameObject:
   m_ObjectHideFlags: 0
