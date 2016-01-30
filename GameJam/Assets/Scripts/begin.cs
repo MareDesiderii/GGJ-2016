@@ -6,18 +6,22 @@ public class begin : MonoBehaviour {
     public GameObject redCandle;
     public GameObject blueCandle;
 
-    private Quaternion rot;
+    public Quaternion rot;
     private Vector3[] PeaceArray;
+    private Vector3[] HeartArray;
 
     private bool isRedCandle;
     private int candleNum = 0;
 
 	// Use this for initialization
 	void Start () {
-        rot = new Quaternion(0, 0, 0, 0);
+        //rot = new Quaternion(0, 0, 0, 0);
         //Star();
         SetUpPeace();
+        //SetUpHeart();
         Instantiate(redCandle, PeaceArray[candleNum], rot);
+        //for (int i = 0; i < 20; i++)
+        //    Instantiate(redCandle, HeartArray[i], rot);
         isRedCandle = false;
         candleNum++;
 	}
@@ -49,6 +53,32 @@ public class begin : MonoBehaviour {
         PeaceArray[2] = new Vector3(0.0f, 1.0f, -4.0f);
         PeaceArray[3] = new Vector3(-3.0f, 1.0f, -4.0f);
         PeaceArray[4] = new Vector3(0.0f, 1.0f, -1.0f);
+    }
+
+    public void SetUpHeart()
+    {
+        HeartArray = new Vector3[20];
+        HeartArray[0] = new Vector3(0.0f, 1.0f, 2.0f);
+        HeartArray[1] = new Vector3(1.0f, 1.0f, 2.5f);
+        HeartArray[2] = new Vector3(1.5f, 1.0f, 3.0f);
+        HeartArray[3] = new Vector3(2.5f, 1.0f, 3.25f);
+        HeartArray[4] = new Vector3(3.0f, 1.0f, 3.0f);
+        HeartArray[5] = new Vector3(3.5f, 1.0f, 2.0f);
+        HeartArray[6] = new Vector3(3.0f, 1.0f, 1.0f);
+        HeartArray[7] = new Vector3(2.25f, 1.0f, 0.0f);
+        HeartArray[8] = new Vector3(1.0f, 1.0f, -.75f);
+        HeartArray[9] = new Vector3(0.0f, 1.0f, -3.0f);
+        HeartArray[10] = new Vector3(-1.0f, 1.0f, -.75f);
+        HeartArray[11] = new Vector3(-2.25f, 1.0f, 0.0f);
+        HeartArray[12] = new Vector3(-3.0f, 1.0f, 1.0f);
+        HeartArray[13] = new Vector3(-3.5f, 1.0f, 2.0f);
+        HeartArray[14] = new Vector3(-3.0f, 1.0f, 3.0f);
+        HeartArray[15] = new Vector3(-2.5f, 1.0f, 3.25f);
+        HeartArray[16] = new Vector3(-1.5f, 1.0f, 3.0f);
+        HeartArray[17] = new Vector3(-1.0f, 1.0f, 2.5f);
+
+        HeartArray[18] = new Vector3(0.5f, 1.0f, -1.75f);
+        HeartArray[19] = new Vector3(-0.5f, 1.0f, -1.75f);
     }
 
     public void SwitchCandles()
