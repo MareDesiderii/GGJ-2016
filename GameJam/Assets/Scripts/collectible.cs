@@ -20,12 +20,16 @@ public class collectible : MonoBehaviour {
             Debug.Log(col.name);
             Debug.Log(name);
             //Destroy(gameObject);
-            if ((col.name == "RedPlayer" && name == "RedCube(Clone)")
-             || (col.name == "BluePlayer" && name == "BlueCube(Clone)"))
+            if ((col.name == "RedPlayer" && name == "Candle Red(Clone)")
+             || (col.name == "BluePlayer" && name == "Candle Blue(Clone)"))
             {
                 begin beg = FindObjectOfType<begin>();
                 beg.SendMessage("SwitchCandles");
-                GetComponent<BoxCollider>().isTrigger = false;
+                GetComponent<CapsuleCollider>().isTrigger = false;
+				GameObject cube = transform.FindChild ("Cube").gameObject;
+				Debug.Log ("CUBE " + cube);
+				cube.GetComponent<MeshRenderer> ().enabled = true;
+
             }
 
         }

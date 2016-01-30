@@ -6,7 +6,7 @@ public class begin : MonoBehaviour {
     public GameObject redCandle;
     public GameObject blueCandle;
 
-    private Quaternion rot;
+    public Quaternion rot;
     private Vector3[] PeaceArray;
 
     private bool isRedCandle;
@@ -14,10 +14,12 @@ public class begin : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        rot = new Quaternion(0, 0, 0, 0);
+		//rot = new Quaternion (redCandle.transform.rotation.x, redCandle.transform.rotation.y, redCandle.transform.rotation.z, 0.0);
+
+		//rot = new Quaternion (0.0f, 90.0f, 90.0f, 0.0f);
         //Star();
         SetUpPeace();
-        Instantiate(redCandle, PeaceArray[candleNum], rot);
+		Instantiate(redCandle, PeaceArray[candleNum],   rot);
         isRedCandle = false;
         candleNum++;
 	}
