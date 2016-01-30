@@ -7,11 +7,13 @@ public class begin : MonoBehaviour {
     public GameObject blueCandle;
 
     public Quaternion rot;
+    public int symbol = 2; // 1 = peace sign, 2 = heart
     private Vector3[] PeaceArray;
     private Vector3[] HeartArray;
 
     private bool isRedCandle;
     private int candleNum = 0;
+    private int maxCandleNum = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -20,11 +22,22 @@ public class begin : MonoBehaviour {
 
 		//rot = new Quaternion (0.0f, 90.0f, 90.0f, 0.0f);
         //Star();
-        SetUpPeace();
-		Instantiate(redCandle, PeaceArray[candleNum],   rot);
 
+        //symbol = FindObjectOfType<selection>().symbol;
+        if (symbol == 1)
+        {
+            SetUpPeace();
+            Instantiate(redCandle, PeaceArray[candleNum], rot);
+            maxCandleNum = 5;
+        }
+        if (symbol == 2)
+        {
+            SetUpHeart();
+            Instantiate(redCandle, HeartArray[candleNum], rot);
+            maxCandleNum = 20;
+        }
         isRedCandle = false;
-        candleNum++;
+
 	}
 	
 	// Update is called once per frame
@@ -48,7 +61,7 @@ public class begin : MonoBehaviour {
 
     public void SetUpPeace()
     {
-        PeaceArray = new Vector3[5];
+        PeaceArray = new Vector3[8];
         PeaceArray[0] = new Vector3(0.0f, 1.0f, 4.0f);
         PeaceArray[1] = new Vector3(3.0f, 1.0f, -4.0f);
         PeaceArray[2] = new Vector3(0.0f, 1.0f, -4.0f);
@@ -84,16 +97,27 @@ public class begin : MonoBehaviour {
 
     public void SwitchCandles()
     {
-        if (isRedCandle)
-        {
-            Instantiate(redCandle, PeaceArray[candleNum], rot);
-            isRedCandle = !isRedCandle;
-        }
+        candleNum++;
+        if (candleNum == maxCandleNum)
+            Application.LoadLevel(2);
         else
         {
-            Instantiate(blueCandle, PeaceArray[candleNum], rot);
-            isRedCandle = !isRedCandle;
+            if (isRedCandle)
+            {
+                if(symbol == 1)
+                    Instantiate(redCandle, PeaceArray[candleNum], rot);
+                if(symbol == 2)
+                    Instantiate(redCandle, HeartArray[candleNum], rot);
+                isRedCandle = !isRedCandle;
+            }
+            else
+            {
+                if (symbol == 1)
+                    Instantiate(blueCandle, PeaceArray[candleNum], rot);
+                if (symbol == 2)
+                    Instantiate(blueCandle, HeartArray[candleNum], rot);
+                isRedCandle = !isRedCandle;
+            }
         }
-        candleNum++;
     }
 }

@@ -48,14 +48,15 @@ public class Player : MonoBehaviour {
         moveDirection = new Vector3(horDir, 0, vertDir);
         moveDirection = transform.TransformDirection(moveDirection);
         if (!CompareDistanceToLight())
-            moveDirection *= speed / 10.0f;
+        {
+            moveDirection *= speed / 5.0f;
+            otherLight.GetComponentInParent<Player>().controller.Move(-moveDirection * Time.deltaTime * .75f);
+        }
         else
             moveDirection *= speed;
 
         // moveDirection.y -= gravity * Time.deltaTime;
          controller.Move(moveDirection * Time.deltaTime);
-
-         
 	
 	}
 
@@ -71,11 +72,12 @@ public class Player : MonoBehaviour {
         else
             return false;
     }
-    void DragEm()
+
+    void OnTriggerExit(Collider col)
     {
-        if (playerID == 1)
+        if (col.transform == otherLight.transform)
         {
-            //FindObjectOfType<Player>
+            //otherLight.GetComponentInParent<Player>().controller.Move(-moveDirection * Time.deltaTime);
         }
     }
 }
