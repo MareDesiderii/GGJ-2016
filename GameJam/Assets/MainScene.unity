@@ -600,8 +600,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f6bd6adb0a8a1c4f981c04fe5772da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  redCandle: {fileID: 105878, guid: 563a887da24523544a7df562f5e59835, type: 2}
-  blueCandle: {fileID: 195064, guid: db3e5d8f53ab18a45b6d0317cd4fcc3e, type: 2}
+  redCandle: {fileID: 150040, guid: f5112381f3d06e746916eabf42b9baed, type: 2}
+  blueCandle: {fileID: 118650, guid: a45b03a3026ea484399ee90067cc5674, type: 2}
   rot: {x: 0, y: 90, z: 90, w: 0}
 --- !u!1 &2049569459
 GameObject:
