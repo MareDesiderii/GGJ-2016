@@ -23,7 +23,7 @@ public class begin : MonoBehaviour {
 		//rot = new Quaternion (0.0f, 90.0f, 90.0f, 0.0f);
         //Star();
 
-        //symbol = FindObjectOfType<selection>().symbol;
+        symbol = FindObjectOfType<selection>().symbol;
         if (symbol == 1)
         {
             SetUpPeace();
