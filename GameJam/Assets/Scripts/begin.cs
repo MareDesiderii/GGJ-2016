@@ -23,7 +23,21 @@ public class begin : MonoBehaviour {
 		//rot = new Quaternion (0.0f, 90.0f, 90.0f, 0.0f);
         //Star();
 
-        symbol = FindObjectOfType<selection>().symbol;
+        selection sel = new selection();
+        if (FindObjectOfType<selection>() != null)
+        {
+            sel = FindObjectOfType<selection>();
+            symbol = sel.symbol;
+            Debug.Log("SDLFK");
+        }
+        else
+        {
+            Debug.Log("stuff");
+            // VVVV this is not workign good
+            GameObject s = GameObject.Instantiate(Resources.Load("Objects/selection", typeof(GameObject))) as GameObject;// (GameObject)Resources.Load("Assets/Objects/selection", typeof(GameObject));
+            symbol = s.GetComponent<selection>().symbol;
+            //symbol = sel.symbol;
+        }
         if (symbol == 1)
         {
             SetUpPeace();
@@ -99,14 +113,20 @@ public class begin : MonoBehaviour {
     {
         candleNum++;
         if (candleNum == maxCandleNum)
+        {
+            selection sel = FindObjectOfType<selection>();
+            if (sel == null)
+                Instantiate(sel);
+            DontDestroyOnLoad(sel);
             Application.LoadLevel(2);
+        }
         else
         {
             if (isRedCandle)
             {
-                if(symbol == 1)
+                if (symbol == 1)
                     Instantiate(redCandle, PeaceArray[candleNum], rot);
-                if(symbol == 2)
+                if (symbol == 2)
                     Instantiate(redCandle, HeartArray[candleNum], rot);
                 isRedCandle = !isRedCandle;
             }
