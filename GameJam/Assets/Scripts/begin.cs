@@ -24,7 +24,6 @@ public class begin : MonoBehaviour {
 		Instantiate(redCandle, PeaceArray[candleNum],   rot);
 
         isRedCandle = false;
-        candleNum++;
 	}
 	
 	// Update is called once per frame
@@ -84,16 +83,21 @@ public class begin : MonoBehaviour {
 
     public void SwitchCandles()
     {
-        if (isRedCandle)
-        {
-            Instantiate(redCandle, PeaceArray[candleNum], rot);
-            isRedCandle = !isRedCandle;
-        }
+        candleNum++;
+        if (candleNum == 5)
+            Application.LoadLevel(2);
         else
         {
-            Instantiate(blueCandle, PeaceArray[candleNum], rot);
-            isRedCandle = !isRedCandle;
+            if (isRedCandle)
+            {
+                Instantiate(redCandle, PeaceArray[candleNum], rot);
+                isRedCandle = !isRedCandle;
+            }
+            else
+            {
+                Instantiate(blueCandle, PeaceArray[candleNum], rot);
+                isRedCandle = !isRedCandle;
+            }
         }
-        candleNum++;
     }
 }
