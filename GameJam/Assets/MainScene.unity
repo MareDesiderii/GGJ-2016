@@ -694,7 +694,7 @@ SphereCollider:
   m_GameObject: {fileID: 1267160534}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -928,6 +928,7 @@ MonoBehaviour:
   redCandle: {fileID: 150040, guid: f5112381f3d06e746916eabf42b9baed, type: 2}
   blueCandle: {fileID: 118650, guid: a45b03a3026ea484399ee90067cc5674, type: 2}
   rot: {x: 0, y: 90, z: 90, w: 0}
+  symbol: 2
 --- !u!1 &2006869563
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,7 +1075,7 @@ SphereCollider:
   m_GameObject: {fileID: 2049569459}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
