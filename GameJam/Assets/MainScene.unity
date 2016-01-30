@@ -95,6 +95,7 @@ GameObject:
   - 4: {fileID: 506235342}
   - 108: {fileID: 506235344}
   - 114: {fileID: 506235343}
+  - 114: {fileID: 506235345}
   m_Layer: 0
   m_Name: Area Light
   m_TagString: Untagged
@@ -158,6 +159,17 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 0.5, y: 0.5}
+--- !u!114 &506235345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 506235341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aeff2bd9d4d3bb4fb44852147f9fc29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &591899268
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,6 +504,7 @@ GameObject:
   - 4: {fileID: 913886138}
   - 108: {fileID: 913886139}
   - 114: {fileID: 913886140}
+  - 114: {fileID: 913886141}
   m_Layer: 0
   m_Name: Area Light
   m_TagString: Untagged
@@ -521,7 +534,7 @@ Light:
   serializedVersion: 6
   m_Type: 2
   m_Color: {r: 1, g: 0, b: 0, a: 0.534}
-  m_Intensity: 1
+  m_Intensity: 8
   m_Range: 2
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -539,7 +552,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -553,6 +566,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68e1226ed17ee014fb5b83d96de3e3b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &913886141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 913886137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aeff2bd9d4d3bb4fb44852147f9fc29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1205563403
