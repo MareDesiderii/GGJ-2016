@@ -17,7 +17,17 @@ public class collectible : MonoBehaviour {
     {
         if (col.tag == "Player")
         {
-            Destroy(gameObject);
+            Debug.Log(col.name);
+            Debug.Log(name);
+            //Destroy(gameObject);
+            if ((col.name == "RedPlayer" && name == "RedCube(Clone)")
+             || (col.name == "BluePlayer" && name == "BlueCube(Clone)"))
+            {
+                begin beg = FindObjectOfType<begin>();
+                beg.SendMessage("SwitchCandles");
+                GetComponent<BoxCollider>().isTrigger = false;
+            }
+
         }
     }
 }
