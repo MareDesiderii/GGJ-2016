@@ -37,6 +37,11 @@ public class Player : MonoBehaviour {
             horizontal = "Horizontal2";
             vertical = "Vertical2";
         }
+
+
+        if (transform.position.y != 1.0f)
+            transform.Translate(new Vector3(0.0f, 1 - transform.position.y, 0.0f));
+
         horDir = Input.GetAxis(horizontal);
         vertDir = Input.GetAxis(vertical);
 
