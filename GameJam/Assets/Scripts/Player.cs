@@ -75,7 +75,7 @@ public class Player : MonoBehaviour {
     {
         if (playerID == 1)
         {
-            //FindObjectOfType<Player>
+            //otherLight.GetComponentInParent<Player>().m
         }
     }
 }
