@@ -393,7 +393,8 @@ GameObject:
   - 33: {fileID: 2049569463}
   - 135: {fileID: 2049569462}
   - 23: {fileID: 2049569461}
-  - 54: {fileID: 2049569465}
+  - 143: {fileID: 2049569460}
+  - 114: {fileID: 2049569466}
   m_Layer: 0
   m_Name: RedPlayer
   m_TagString: Untagged
@@ -401,6 +402,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!143 &2049569460
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2049569459}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 1
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2049569461
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -458,21 +476,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
---- !u!54 &2049569465
-Rigidbody:
+--- !u!114 &2049569466
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2049569459}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5928caaa5f0d7554ea3865a170b9c830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  gravity: 20
 --- !u!1 &2095849881
 GameObject:
   m_ObjectHideFlags: 0
