@@ -53,8 +53,8 @@ public class begin : MonoBehaviour {
         }
         if (symbol == 2)
         {
-            SetUpHeart();
-            Instantiate(redCandle, HeartArray[candleNum], rot);
+            SetUpHappy();
+            Instantiate(redCandle, HappyArray[candleNum], rot);
             maxCandleNum = 23;
         }
 

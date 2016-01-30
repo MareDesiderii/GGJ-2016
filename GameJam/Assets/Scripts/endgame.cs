@@ -18,7 +18,7 @@ public class endgame : MonoBehaviour {
         DontDestroyOnLoad(sel);
         Application.LoadLevel(1);
     }
-    public void LoadHapy(){
+    public void LoadHappy(){
         sel = FindObjectOfType<selection>();
         sel.symbol = 2;
         DontDestroyOnLoad(sel);
