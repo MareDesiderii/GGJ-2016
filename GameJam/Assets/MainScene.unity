@@ -676,8 +676,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f6bd6adb0a8a1c4f981c04fe5772da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  redCandle: {fileID: 150298, guid: b94aaa839664bda4eb649b4f74ba6568, type: 2}
-  blueCandle: {fileID: 111854, guid: cfdc159afcde2c94290aeb41313564e6, type: 2}
+  redCandle: {fileID: 105878, guid: 563a887da24523544a7df562f5e59835, type: 2}
+  blueCandle: {fileID: 195064, guid: db3e5d8f53ab18a45b6d0317cd4fcc3e, type: 2}
   rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &2006869563
 GameObject:
@@ -754,6 +754,7 @@ TrailRenderer:
       rgba: 16777215
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
+  rot: {x: 0, y: 90, z: 90, w: 0}
 --- !u!1 &2049569459
 GameObject:
   m_ObjectHideFlags: 0
