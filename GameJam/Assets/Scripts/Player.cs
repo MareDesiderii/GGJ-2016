@@ -17,6 +17,7 @@ public class Player : MonoBehaviour {
 
     private string horizontal;
     private string vertical;
+    private int introSteps = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +26,18 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (introSteps < 360)
+        {
+            //move player for intro
+            Vector3 wiggle = new Vector3(Mathf.Sin(introSteps*3.14f/45.0f)/100.0f,0,0);
+            if (playerID == 1 & introSteps < 180)
+                controller.Move(wiggle);
+            if (playerID == 2 & introSteps >= 180)
+                controller.Move(wiggle);
+            introSteps++;
+            return;
+        }
 
 
         if (playerID == 1)
