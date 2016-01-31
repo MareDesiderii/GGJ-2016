@@ -1354,81 +1354,6 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
---- !u!1 &907989628
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 907989629}
-  - 96: {fileID: 907989630}
-  m_Layer: 0
-  m_Name: Blue Trail
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &907989629
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 907989628}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1267160538}
-  m_RootOrder: 1
---- !u!96 &907989630
-TrailRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 907989628}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Time: 8
-  m_StartWidth: 0.1
-  m_EndWidth: 0.05
-  m_Colors:
-    m_Color[0]:
-      serializedVersion: 2
-      rgba: 4294901760
-    m_Color[1]:
-      serializedVersion: 2
-      rgba: 4294901760
-    m_Color[2]:
-      serializedVersion: 2
-      rgba: 4294901760
-    m_Color[3]:
-      serializedVersion: 2
-      rgba: 4294901760
-    m_Color[4]:
-      serializedVersion: 2
-      rgba: 16711680
-  m_MinVertexDistance: 0.1
-  m_Autodestruct: 0
 --- !u!1 &913886137
 GameObject:
   m_ObjectHideFlags: 0
@@ -3611,9 +3536,9 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 506235342}
-  - {fileID: 907989629}
   - {fileID: 1895107866}
   - {fileID: 1783530788}
+  - {fileID: 1284996399}
   m_Father: {fileID: 0}
   m_RootOrder: 5
 --- !u!143 &1267160539
@@ -3652,6 +3577,81 @@ MonoBehaviour:
   Mouth: {fileID: 1243462534}
   otherLight: {fileID: 913886137}
   maxDist: 1
+--- !u!1 &1284996398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1284996399}
+  - 96: {fileID: 1284996400}
+  m_Layer: 0
+  m_Name: Blue Trail
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1284996399
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1284996398}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1267160538}
+  m_RootOrder: 3
+--- !u!96 &1284996400
+TrailRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1284996398}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 77d08210df254d845885518314593544, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Time: 8
+  m_StartWidth: 0.1
+  m_EndWidth: 0.05
+  m_Colors:
+    m_Color[0]:
+      serializedVersion: 2
+      rgba: 1694433280
+    m_Color[1]:
+      serializedVersion: 2
+      rgba: 1694433280
+    m_Color[2]:
+      serializedVersion: 2
+      rgba: 1694433280
+    m_Color[3]:
+      serializedVersion: 2
+      rgba: 1694433280
+    m_Color[4]:
+      serializedVersion: 2
+      rgba: 16711680
+  m_MinVertexDistance: 0.1
+  m_Autodestruct: 0
 --- !u!1 &1494959740
 GameObject:
   m_ObjectHideFlags: 0
@@ -3841,7 +3841,7 @@ Transform:
   - {fileID: 67744608}
   - {fileID: 316446442}
   m_Father: {fileID: 1267160538}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &1827430552
 GameObject:
   m_ObjectHideFlags: 0
@@ -3945,7 +3945,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1267160538}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!199 &1895107867
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
@@ -5748,16 +5748,16 @@ TrailRenderer:
   m_Colors:
     m_Color[0]:
       serializedVersion: 2
-      rgba: 4278190335
+      rgba: 1677721855
     m_Color[1]:
       serializedVersion: 2
-      rgba: 4278190335
+      rgba: 1677721855
     m_Color[2]:
       serializedVersion: 2
-      rgba: 4278190335
+      rgba: 1677721855
     m_Color[3]:
       serializedVersion: 2
-      rgba: 4278190335
+      rgba: 1677721855
     m_Color[4]:
       serializedVersion: 2
       rgba: 255
