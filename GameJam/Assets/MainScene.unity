@@ -5614,9 +5614,9 @@ MonoBehaviour:
   playerID: 1
   speed: 3
   gravity: 20
-  lEye: {fileID: 0}
-  rEye: {fileID: 0}
-  Mouth: {fileID: 0}
+  lEye: {fileID: 253967386}
+  rEye: {fileID: 1516230317}
+  Mouth: {fileID: 1049496218}
   otherLight: {fileID: 506235341}
   maxDist: 1
 --- !u!1 &2095849881
