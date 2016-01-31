@@ -18,9 +18,11 @@ public class Melt : MonoBehaviour {
 
 			transform.localScale = vt3;
 
-			if (vt3.y <= 0) {
-				
-				Destroy (this.gameObject);
+			if (vt3.z <= 0) {
+				GameObject me = this.transform.parent.gameObject;
+				Debug.Log ("Time to Destroy");
+				Debug.Log ("THIS " + me);
+				Destroy (me);
 				AudioSource candle_out = GameObject.Find( "SoundCandleOut" ).GetComponent<AudioSource>();
 				candle_out.Play();
                 FindObjectOfType<Score>().m_Score--;
