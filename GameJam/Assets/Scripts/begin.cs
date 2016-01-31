@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class begin : MonoBehaviour {
 
     public GameObject redCandle;
     public GameObject blueCandle;
+    public Canvas canv;
 
     public Quaternion rot;
     public int symbol = 0; // 0 = peace sign, 1 = heart, 2 = happy
@@ -199,7 +201,7 @@ public class begin : MonoBehaviour {
                 Instantiate(sel);
             DontDestroyOnLoad(sel);
             DontDestroyOnLoad(score);
-            Application.LoadLevel(2);
+            StartCoroutine(Finish(2.0f));
         }
         else
         {
@@ -226,5 +228,13 @@ public class begin : MonoBehaviour {
                 score.m_Score++;
             }
         }
+    }
+    IEnumerator Finish(float waitTime)
+    {
+        //canv.GetComponent<RawImage>().rectTransform.rect.Set(0, 0, 256.0f, 256.0f);
+        yield return new WaitForSeconds(waitTime);
+        Debug.Log("Finish " + Time.time);
+
+        Application.LoadLevel(2);
     }
 }
