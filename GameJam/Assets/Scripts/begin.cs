@@ -90,8 +90,8 @@ public class begin : MonoBehaviour {
         PeaceArray[2] = new Vector3(0.0f, 1.0f, -4.0f);
         PeaceArray[3] = new Vector3(-3.0f, 1.0f, -3.5f);
         PeaceArray[4] = new Vector3(0.0f, 1.0f, -1.0f);
-        //PeaceArray[5] = new Vector3(-4.0f, 1.0f, 0.0f);
-        //PeaceArray[6] = new Vector3(4.0f, 1.0f, 0.0f);
+        PeaceArray[5] = new Vector3(-4.0f, 1.0f, 0.0f);
+        PeaceArray[6] = new Vector3(4.0f, 1.0f, 0.0f);
         PeaceArray[7] = new Vector3(3.5f, 1.0f, 2f);
         PeaceArray[8] = new Vector3(-3.5f, 1.0f, 2f);
         PeaceArray[9] = new Vector3(3.5f, 1.0f, -2f);
