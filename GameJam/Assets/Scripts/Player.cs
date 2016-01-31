@@ -7,6 +7,8 @@ public class Player : MonoBehaviour {
     public float speed = 10.0f;
     public float gravity = 20.0f;
 
+    public Component lEye, rEye, Mouth;
+
     public GameObject otherLight;
     public float maxDist = 0.7f;
 
@@ -17,6 +19,7 @@ public class Player : MonoBehaviour {
 
     private string horizontal;
     private string vertical;
+    private int introSteps = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +28,18 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        //if (introSteps < 360)
+        //{
+        //    //move player for intro
+        //    Vector3 wiggle = new Vector3(Mathf.Sin(introSteps*3.14f/45.0f)/100.0f,0,0);
+        //    if (playerID == 1 & introSteps < 180)
+        //        controller.Move(wiggle);
+        //    if (playerID == 2 & introSteps >= 180)
+        //        controller.Move(wiggle);
+        //    introSteps++;
+        //    return;
+        //}
 
 
         if (playerID == 1)
@@ -61,7 +76,21 @@ public class Player : MonoBehaviour {
         controller.Move(AllowedMove * speed * Time.deltaTime);
     }
 
-    bool IsOutsideLight(Vector3 move)
+
+    void OnTriggerEnter(Collider col)
+    {
+        int coin = Random.Range(0, 1);
+        if (col.tag == "Candle Red" || col.tag == "Candle Blue" && 1 == coin)
+        {
+			if ( true )
+            {
+
+            }
+
+        }
+    }
+
+            bool IsOutsideLight(Vector3 move)
     {
         float dx = transform.position.x + move.x - otherLight.transform.position.x;
         float dy = transform.position.z + move.z - otherLight.transform.position.z;

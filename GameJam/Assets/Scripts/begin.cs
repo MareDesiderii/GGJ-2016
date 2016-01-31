@@ -6,7 +6,11 @@ public class begin : MonoBehaviour {
 
     public GameObject redCandle;
     public GameObject blueCandle;
-    public Canvas canv;
+    public RawImage endImage;
+
+    public Texture peaceTx;
+    public Texture loveTx;
+    public Texture happyTx;
 
     public Quaternion rot;
     public int symbol = 0; // 0 = peace sign, 1 = heart, 2 = happy
@@ -19,16 +23,28 @@ public class begin : MonoBehaviour {
     private int maxCandleNum = 0;
 
     public float peaceSpeed = 0.02f;
-    public float heartSpeed = 0.005f;
-    public float happySpeed = 0.005f;
+    public float heartSpeed = 0.01f;
+    public float happySpeed = 0.01f;
+
+    private bool endPicScale = false;
 
     private Score score;
 
+	private float waitTimeToNextScreen=2.0f;
+	private float timeToNextDecreaseVol=0; //reset in Finish()
+	private float curAudioGoal = 0; // reset in Finish()
+	private float audioDecreaseAmount=0;
+	private float elapsedTimeToNextScreen=0;
+
+
 	// Use this for initialization
 	void Start () {
-		//rot = new Quaternion (redCandle.transform.rotation.x, redCandle.transform.rotation.y, redCandle.transform.rotation.z, 0.0);
+        //rot = new Quaternion (redCandle.transform.rotation.x, redCandle.transform.rotation.y, redCandle.transform.rotation.z, 0.0);
 
-		//rot = new Quaternion (0.0f, 90.0f, 90.0f, 0.0f);
+        //rot = new Quaternion (0.0f, 90.0f, 90.0f, 0.0f);
+
+        //GetComponent<SpriteRenderer>().sprite = WinSpritesArray[2];
+
         //Star();
         score = FindObjectOfType<Score>();
         selection sel = new selection();
@@ -51,7 +67,7 @@ public class begin : MonoBehaviour {
             redCandle.GetComponent<Melt>().speed = peaceSpeed;
             blueCandle.GetComponent<Melt>().speed = peaceSpeed;
             Instantiate(redCandle, PeaceArray[candleNum], rot);
-            maxCandleNum = 11;
+            maxCandleNum = 13;
         }
         if (symbol == 1)
         {
@@ -74,37 +90,40 @@ public class begin : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (endPicScale == true)
+        {
+			endImage.rectTransform.sizeDelta += new Vector2(1024.0f * Time.deltaTime / 2, 1024.0f * Time.deltaTime / 2);
+            
 
+			elapsedTimeToNextScreen += Time.deltaTime;
+			if ( elapsedTimeToNextScreen > curAudioGoal )
+			{
+				curAudioGoal += timeToNextDecreaseVol;		
+
+				AudioSource music = GameObject.Find( 
+					"CandleMusic" ).GetComponent<AudioSource>();
+				music.volume -= audioDecreaseAmount;
+				
+			}
+        }
 	}
-
-    public void Star()
-    {
-        Instantiate(redCandle, new Vector3(0.0f, 1.0f, 1.0f), rot);
-        Instantiate(blueCandle, new Vector3(-.5f, 1.0f, 0.0f), rot);
-        Instantiate(redCandle, new Vector3(-1.0f, 1.0f, 0.0f), rot);
-        Instantiate(redCandle, new Vector3(0.5f, 1.0f, 0.0f), rot);
-        Instantiate(blueCandle, new Vector3(1.0f, 1.0f, 0.0f), rot);
-        Instantiate(blueCandle, new Vector3(-.5f, 1.0f, -.5f), rot);
-        Instantiate(redCandle, new Vector3(0.5f, 1.0f, -0.5f), rot);
-        Instantiate(blueCandle, new Vector3(-0.5f, 1.0f, -1.0f), rot);
-        Instantiate(redCandle, new Vector3(0.5f, 1.0f, -1.0f), rot);
-
-    }
 
     public void SetUpPeace()
     {
-        PeaceArray = new Vector3[11];
+        PeaceArray = new Vector3[13];
         PeaceArray[0] = new Vector3(0.0f, 1.0f, 4.0f);
-        PeaceArray[1] = new Vector3(3.0f, 1.0f, -4.0f);
+        PeaceArray[1] = new Vector3(3.0f, 1.0f, -3.5f);
         PeaceArray[2] = new Vector3(0.0f, 1.0f, -4.0f);
-        PeaceArray[3] = new Vector3(-3.0f, 1.0f, -4.0f);
+        PeaceArray[3] = new Vector3(-3.0f, 1.0f, -3.5f);
         PeaceArray[4] = new Vector3(0.0f, 1.0f, -1.0f);
         PeaceArray[5] = new Vector3(-4.0f, 1.0f, 0.0f);
         PeaceArray[6] = new Vector3(4.0f, 1.0f, 0.0f);
-        PeaceArray[7] = new Vector3(3.0f, 1.0f, 1.0f);
-        PeaceArray[8] = new Vector3(-3.0f, 1.0f, 1.0f);
-        PeaceArray[9] = new Vector3(3.0f, 1.0f, -1.0f);
-        PeaceArray[10] = new Vector3(-3.0f, 1.0f, -1.0f);
+        PeaceArray[7] = new Vector3(3.5f, 1.0f, 2f);
+        PeaceArray[8] = new Vector3(-3.5f, 1.0f, 2f);
+        PeaceArray[9] = new Vector3(3.5f, 1.0f, -2f);
+        PeaceArray[10] = new Vector3(-3.5f, 1.0f, -2f);
+        PeaceArray[11] = new Vector3(-3.0f, 1.0f, 3.5f);
+        PeaceArray[12] = new Vector3(3.0f, 1.0f, 3.5f);
         int n = PeaceArray.Length;
         while (n > 1)
         {
@@ -201,7 +220,7 @@ public class begin : MonoBehaviour {
                 Instantiate(sel);
             DontDestroyOnLoad(sel);
             DontDestroyOnLoad(score);
-            StartCoroutine(Finish(2.0f));
+            StartCoroutine(Finish());
         }
         else
         {
@@ -229,12 +248,30 @@ public class begin : MonoBehaviour {
             }
         }
     }
-    IEnumerator Finish(float waitTime)
+    IEnumerator Finish()
     {
-        //canv.GetComponent<RawImage>().rectTransform.rect.Set(0, 0, 256.0f, 256.0f);
-        yield return new WaitForSeconds(waitTime);
-        Debug.Log("Finish " + Time.time);
+        //canv.GetComponent<RawImage>().rectTransform.rect.Set(0, 0, 256.0f, 256.0f)
+        //endImage.rectTransform.sizeDelta += new Vector2(256.0f, 51.0f);
+        //endImage.
+        endPicScale = true;
+        if (symbol == 0)
+            endImage.texture = peaceTx;
+        if (symbol == 1)
+            endImage.texture = loveTx;
+        if (symbol == 2)
+            endImage.texture = happyTx;
 
+		AudioSource music = GameObject.Find( 
+			"CandleMusic" ).GetComponent<AudioSource>();
+
+		curAudioGoal = timeToNextDecreaseVol;
+		timeToNextDecreaseVol=waitTimeToNextScreen/20;
+		audioDecreaseAmount = music.volume/20;
+		music.volume -= audioDecreaseAmount;
+
+		yield return new WaitForSeconds( waitTimeToNextScreen );
+        Debug.Log("Finish " + Time.time);
+        endPicScale = false;
         Application.LoadLevel(2);
     }
 }
