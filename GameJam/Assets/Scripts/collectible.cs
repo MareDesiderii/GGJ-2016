@@ -14,27 +14,38 @@ public class collectible : MonoBehaviour {
 	}
 
     void OnTriggerEnter(Collider col)
-    {
-        if (col.tag == "Player")
-        {
-            Debug.Log(col.name);
-            Debug.Log(name);
-            //Destroy(gameObject);
-            if ((col.name == "RedPlayer" && name == "Candle Red")
-             || (col.name == "BluePlayer" && name == "Candle Blue"))
-            {
-                begin beg = FindObjectOfType<begin>();
-                beg.SendMessage("SwitchCandles");
-                GetComponent<CapsuleCollider>().enabled = false;
+	{
+		if (col.tag == "Player") {
+			Debug.Log (col.name);
+			Debug.Log (name);
+			//Destroy(gameObject);
+			if ((col.name == "RedPlayer" && name == "Candle Red")
+			    || (col.name == "BluePlayer" && name == "Candle Blue")) {
+				begin beg = FindObjectOfType<begin> ();
+				beg.SendMessage ("SwitchCandles");
+				GetComponent<CapsuleCollider> ().enabled = false;
 
-					GameObject cube = transform.FindChild ("Cube").gameObject;
+				GameObject cube = transform.FindChild ("Cube").gameObject;
 			
 
-					Debug.Log ("CUBE " + cube);
+				Debug.Log ("CUBE " + cube);
 				cube.GetComponent<MeshRenderer> ().enabled = true;
+				if (col.name == "BluePlayer") {
 
-            }
 
-        }
-    }
+					Renderer rend = cube.GetComponent<Renderer> ();
+
+					rend.material.shader = Shader.Find ("Standard");
+					rend.material.SetColor ("_Color", new Color (0, 74, 255));
+
+				} else {
+
+					Renderer rend = cube.GetComponent<Renderer> ();
+					rend.material.shader = Sharder.Find ("Standard");
+					rend.material.SetColor ("_Color", new Color (255, 115, 0));
+				}
+			}
+
+		}
+	}
 }
