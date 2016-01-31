@@ -17,8 +17,8 @@ public class begin : MonoBehaviour {
     private int maxCandleNum = 0;
 
     public float peaceSpeed = 0.02f;
-    public float heartSpeed = 0.005f;
-    public float happySpeed = 0.005f;
+    public float heartSpeed = 0.01f;
+    public float happySpeed = 0.01f;
 
     private Score score;
 
@@ -49,7 +49,7 @@ public class begin : MonoBehaviour {
             redCandle.GetComponent<Melt>().speed = peaceSpeed;
             blueCandle.GetComponent<Melt>().speed = peaceSpeed;
             Instantiate(redCandle, PeaceArray[candleNum], rot);
-            maxCandleNum = 11;
+            maxCandleNum = 13;
         }
         if (symbol == 1)
         {
@@ -91,18 +91,20 @@ public class begin : MonoBehaviour {
 
     public void SetUpPeace()
     {
-        PeaceArray = new Vector3[11];
+        PeaceArray = new Vector3[13];
         PeaceArray[0] = new Vector3(0.0f, 1.0f, 4.0f);
-        PeaceArray[1] = new Vector3(3.0f, 1.0f, -4.0f);
+        PeaceArray[1] = new Vector3(3.0f, 1.0f, -3.5f);
         PeaceArray[2] = new Vector3(0.0f, 1.0f, -4.0f);
-        PeaceArray[3] = new Vector3(-3.0f, 1.0f, -4.0f);
+        PeaceArray[3] = new Vector3(-3.0f, 1.0f, -3.5f);
         PeaceArray[4] = new Vector3(0.0f, 1.0f, -1.0f);
         PeaceArray[5] = new Vector3(-4.0f, 1.0f, 0.0f);
         PeaceArray[6] = new Vector3(4.0f, 1.0f, 0.0f);
-        PeaceArray[7] = new Vector3(3.0f, 1.0f, 1.0f);
-        PeaceArray[8] = new Vector3(-3.0f, 1.0f, 1.0f);
-        PeaceArray[9] = new Vector3(3.0f, 1.0f, -1.0f);
-        PeaceArray[10] = new Vector3(-3.0f, 1.0f, -1.0f);
+        PeaceArray[7] = new Vector3(3.5f, 1.0f, 2f);
+        PeaceArray[8] = new Vector3(-3.5f, 1.0f, 2f);
+        PeaceArray[9] = new Vector3(3.5f, 1.0f, -2f);
+        PeaceArray[10] = new Vector3(-3.5f, 1.0f, -2f);
+        PeaceArray[11] = new Vector3(-3.0f, 1.0f, 3.5f);
+        PeaceArray[12] = new Vector3(3.0f, 1.0f, 3.5f);
         int n = PeaceArray.Length;
         while (n > 1)
         {

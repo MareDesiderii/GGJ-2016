@@ -13,7 +13,7 @@ public class EndScript : MonoBehaviour {
 
         int div = 0;
         if (sel == 0)
-            div = 5;
+            div = 13;
         if (sel == 1)
             div = 20;
         if (sel == 2)

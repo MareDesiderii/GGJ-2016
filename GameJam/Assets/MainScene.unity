@@ -112,7 +112,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 25ab9334371c5d24a8784cdef76f652a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.635
+  m_Volume: 0.63
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -501,7 +501,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: b2379f01a00099c438ad1578ba90936c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.602
+  m_Volume: 0.33
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4518,8 +4518,8 @@ MonoBehaviour:
   rot: {x: 0, y: 90, z: 90, w: 0}
   symbol: 2
   peaceSpeed: 0.02
-  heartSpeed: 0.005
-  happySpeed: 0.005
+  heartSpeed: 0.01
+  happySpeed: 0.01
 --- !u!1 &2006869563
 GameObject:
   m_ObjectHideFlags: 0
