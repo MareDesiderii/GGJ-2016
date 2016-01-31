@@ -9,6 +9,8 @@ TagManager:
   - New Tag
   - Red
   - Blue
+  - StartBlackFadeScreen
+  - StartScreenCanvas
   layers:
   - Default
   - TransparentFX

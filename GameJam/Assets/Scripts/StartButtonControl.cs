@@ -11,34 +11,61 @@ public class StartButtonControl : MonoBehaviour {
     private float t = 0;
     private Color purple;
     private bool flicker = false;
+
+	private float elapsedTime = 0.0f;
+	private float preventSelectUntil = 1.0f;
+	bool slowInput=false;
+
 	// Use this for initialization
 	void Start () {
         cb = buttons[selectedButton].colors;
         purple = new Color(0.0f, 1.0f, 0.0f);
+
+		elapsedTime += Time.deltaTime;
 	}
 	
 	// Update is called once per frame
     void Update()
     {
-        float imp = Input.GetAxis("Horizontal");
-        if (imp > 0.4f)
-        {
-            cb.normalColor = Color.white;
-            buttons[selectedButton].colors = cb;
-            selectedButton++;
-            selectedButton = Mathf.Clamp(selectedButton, 0, 2);
-            cb = buttons[selectedButton].colors;
-            flicker = false;
-        }
-        if (imp < -0.4f)
-        {
-            cb.normalColor = Color.white;
-            buttons[selectedButton].colors = cb;
-            selectedButton--;
-            selectedButton = Mathf.Clamp(selectedButton, 0, 2);
-            cb = buttons[selectedButton].colors;
-            flicker = false;
-        }
+
+		elapsedTime += Time.deltaTime;
+
+		float imp = Input.GetAxis("Horizontal");
+
+		if ( imp < -0.4f || imp > 0.4f )
+		{
+
+			if ( !slowInput || elapsedTime > preventSelectUntil )
+			{
+				Debug.Log("not preventing select ");
+
+				cb.normalColor = Color.white;
+				buttons[selectedButton].colors = cb;
+
+				if ( imp > 0.4f )
+				{
+					selectedButton++;
+				}
+				else
+				{
+					selectedButton--;
+				}
+
+				selectedButton = Mathf.Clamp(selectedButton, 0, 2);
+				cb = buttons[selectedButton].colors;
+				flicker = false;
+
+				preventSelectUntil = elapsedTime + 0.4f;
+				slowInput = true;
+			}
+
+
+		}
+		else
+		{
+			slowInput = false;
+		}
+
         if(Input.GetButtonDown("Fire1"))
         {
             if(selectedButton == 0)
