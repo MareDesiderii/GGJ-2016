@@ -91,12 +91,21 @@ public class begin : MonoBehaviour {
 
     public void SetUpPeace()
     {
-        PeaceArray = new Vector3[8];
+        PeaceArray = new Vector3[5];
         PeaceArray[0] = new Vector3(0.0f, 1.0f, 4.0f);
         PeaceArray[1] = new Vector3(3.0f, 1.0f, -4.0f);
         PeaceArray[2] = new Vector3(0.0f, 1.0f, -4.0f);
         PeaceArray[3] = new Vector3(-3.0f, 1.0f, -4.0f);
         PeaceArray[4] = new Vector3(0.0f, 1.0f, -1.0f);
+        int n = PeaceArray.Length;
+        while (n > 1)
+        {
+            int k = Random.Range(0, n);
+            n--;
+            Vector3 temp = PeaceArray[n];
+            PeaceArray[n] = PeaceArray[k];
+            PeaceArray[k] = temp;
+        }
     }
 
     public void SetUpHeart()
@@ -120,13 +129,22 @@ public class begin : MonoBehaviour {
         HeartArray[15] = new Vector3(-2.5f, 1.0f, 3.25f);
         HeartArray[16] = new Vector3(-1.5f, 1.0f, 3.0f);
         HeartArray[17] = new Vector3(-1.0f, 1.0f, 2.5f);
-
         HeartArray[18] = new Vector3(0.5f, 1.0f, -1.75f);
         HeartArray[19] = new Vector3(-0.5f, 1.0f, -1.75f);
+        int n = HeartArray.Length;
+        while (n > 1)
+        {
+            int k = Random.Range(0, n);
+            n--;
+            Vector3 temp = HeartArray[n];
+            HeartArray[n] = HeartArray[k];
+            HeartArray[k] = temp;
+        }
     }
 
     public void SetUpHappy()
     {
+        
         HappyArray = new Vector3[23];
         HappyArray[0] = new Vector3(-.5f, 1.0f, 1.0f);
         HappyArray[1] = new Vector3(.5f, 1.0f, 1.0f);
@@ -151,7 +169,19 @@ public class begin : MonoBehaviour {
         HappyArray[20] = new Vector3(-1.0f, 1.0f, -3.9f);
         HappyArray[21] = new Vector3(1.0f, 1.0f, -3.9f);
         HappyArray[22] = new Vector3(0.0f, 1.0f, -4.0f);
+        int n = HappyArray.Length;
+        while (n > 1)
+        {
+            int k = Random.Range(0,n);
+            n--;
+            Vector3 temp = HappyArray[n];
+            HappyArray[n] = HappyArray[k];
+            HappyArray[k] = temp;
+        }
     }
+
+
+
 
     public void SwitchCandles()
     {
