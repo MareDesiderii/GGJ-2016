@@ -8,7 +8,7 @@ public class Player : MonoBehaviour {
     public float gravity = 20.0f;
 
     public GameObject otherLight;
-    public float maxDist = 0.3f;
+    public float maxDist = 0.7f;
 
     private float horDir;
     private float vertDir;
@@ -56,15 +56,9 @@ public class Player : MonoBehaviour {
         //offset from the center of the otherlight accounting for both players moves
         Vector3 newOffset = (transform.position + moveDirection) - (otherLight.transform.position);
         //clamp our movment to just inside the otherlight
-
         Vector3 AllowedMove = Vector3.ClampMagnitude(newOffset, maxDist) - oldOffset;
-        //pull on the other player if we would be moving outside the light
-        //if (IsOutsideLight(moveDirection)) 
-        //{
-        //   // otherLight.GetComponentInParent<Player>().controller.Move(-moveDirection * Time.deltaTime * 0.3f);
-        //}
 
-        controller.Move(AllowedMove * 3 * Time.deltaTime);
+        controller.Move(AllowedMove * speed * Time.deltaTime);
     }
 
     bool IsOutsideLight(Vector3 move)

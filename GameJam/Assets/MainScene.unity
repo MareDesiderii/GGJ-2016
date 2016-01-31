@@ -2318,10 +2318,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerID: 2
-  speed: 5
+  speed: 3
   gravity: 20
   otherLight: {fileID: 913886137}
-  maxDist: 0.7
+  maxDist: 1
 --- !u!1 &1827430552
 GameObject:
   m_ObjectHideFlags: 0
@@ -4255,7 +4255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerID: 1
-  speed: 5
+  speed: 3
   gravity: 20
   otherLight: {fileID: 506235341}
   maxDist: 1
