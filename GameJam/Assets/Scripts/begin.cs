@@ -8,9 +8,6 @@ public class begin : MonoBehaviour {
     public GameObject blueCandle;
     public RawImage endImage;
 
-
-    public Sprite[] WinSpritesArray;
-
     public Texture peaceTx;
     public Texture loveTx;
     public Texture happyTx;
@@ -39,7 +36,7 @@ public class begin : MonoBehaviour {
 
         //rot = new Quaternion (0.0f, 90.0f, 90.0f, 0.0f);
 
-        GetComponent<SpriteRenderer>().sprite = WinSpritesArray[2];
+        //GetComponent<SpriteRenderer>().sprite = WinSpritesArray[2];
 
         //Star();
         score = FindObjectOfType<Score>();
@@ -88,7 +85,7 @@ public class begin : MonoBehaviour {
 	void Update () {
         if (endPicScale == true)
         {
-            endImage.rectTransform.sizeDelta += new Vector2(512.0f * Time.deltaTime / 2, 512.0f * Time.deltaTime / 2);
+            endImage.rectTransform.sizeDelta += new Vector2(1024.0f * Time.deltaTime / 2, 1024.0f * Time.deltaTime / 2);
         }
 	}
 
@@ -238,7 +235,7 @@ public class begin : MonoBehaviour {
         //endImage.rectTransform.sizeDelta += new Vector2(256.0f, 51.0f);
         //endImage.
         endPicScale = true;
-        if(symbol == 0)
+        if (symbol == 0)
             endImage.texture = peaceTx;
         if (symbol == 1)
             endImage.texture = loveTx;

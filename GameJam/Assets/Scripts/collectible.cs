@@ -42,6 +42,8 @@ public class collectible : MonoBehaviour {
 				lit_sound.Play( );
 
 				GameObject cube = transform.FindChild ("Cube").gameObject;
+				GameObject glow = transform.parent.FindChild("Portal Surface").gameObject;
+				glow.transform.Rotate(-20, 0, 0);
 			
 
 				Debug.Log ("CUBE " + cube);
