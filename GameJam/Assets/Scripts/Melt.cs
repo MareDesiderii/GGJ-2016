@@ -18,11 +18,11 @@ public class Melt : MonoBehaviour {
 
 		if (transform.GetChild(0).GetChild(0).gameObject.active){
 			Debug.Log ("MELTING!!!");
-			Vector3 vt3 = new Vector3 (transform.localScale.x, (transform.localScale.y - (Time.deltaTime * speed)), transform.localScale.z);
+			Vector3 vt3 = new Vector3 (transform.localScale.x, transform.localScale.y,transform.localScale.z - (Time.deltaTime * speed));
 
 			transform.localScale = vt3;
 
-			if (vt3.y <= 0) {
+			if (vt3.z <= 0) {
 				Debug.Log ("Time to Destroy");
 				Debug.Log ("THIS " + this);
 				Destroy (this.gameObject);
