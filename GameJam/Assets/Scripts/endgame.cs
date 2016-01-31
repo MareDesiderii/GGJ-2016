@@ -7,15 +7,22 @@ public class endgame : MonoBehaviour {
     public void LoadPeace()
     {
         sel = FindObjectOfType<selection>();
-        sel.symbol = 1;
+        sel.symbol = 0;
         DontDestroyOnLoad(sel);
         Application.LoadLevel(1);
     }
     public void LoadLove()
     {
         sel = FindObjectOfType<selection>();
+        sel.symbol = 1;
+        DontDestroyOnLoad(sel);
+        Application.LoadLevel(1);
+    }
+    public void LoadHappy(){
+        sel = FindObjectOfType<selection>();
         sel.symbol = 2;
         DontDestroyOnLoad(sel);
         Application.LoadLevel(1);
+    
     }
 }

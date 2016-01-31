@@ -7,13 +7,18 @@ public class begin : MonoBehaviour {
     public GameObject blueCandle;
 
     public Quaternion rot;
-    public int symbol = 2; // 1 = peace sign, 2 = heart
+    public int symbol = 0; // 0 = peace sign, 1 = heart, 2 = happy
     private Vector3[] PeaceArray;
     private Vector3[] HeartArray;
+    private Vector3[] HappyArray;
 
     private bool isRedCandle;
     private int candleNum = 0;
     private int maxCandleNum = 0;
+
+    public float peaceSpeed = 0.02f;
+    public float heartSpeed = 0.005f;
+    public float happySpeed = 0.005f;
 
 	// Use this for initialization
 	void Start () {
@@ -22,35 +27,45 @@ public class begin : MonoBehaviour {
 
 		//rot = new Quaternion (0.0f, 90.0f, 90.0f, 0.0f);
         //Star();
-
+        
         selection sel = new selection();
         if (FindObjectOfType<selection>() != null)
         {
             sel = FindObjectOfType<selection>();
             symbol = sel.symbol;
-            Debug.Log("SDLFK");
         }
         else
         {
-            Debug.Log("stuff");
+            Debug.Log("Starting from main, wont go to end scene");
             // VVVV this is not workign good
-            GameObject s = GameObject.Instantiate(Resources.Load("Objects/selection", typeof(GameObject))) as GameObject;// (GameObject)Resources.Load("Assets/Objects/selection", typeof(GameObject));
-            symbol = s.GetComponent<selection>().symbol;
+            //GameObject s = GameObject.Instantiate(Resources.Load("Objects/selection", typeof(GameObject))) as GameObject;// (GameObject)Resources.Load("Assets/Objects/selection", typeof(GameObject));
+            //symbol = s.GetComponent<selection>().symbol;
             //symbol = sel.symbol;
         }
-        if (symbol == 1)
+        if (symbol == 0)
         {
             SetUpPeace();
+            redCandle.GetComponent<Melt>().speed = peaceSpeed;
+            blueCandle.GetComponent<Melt>().speed = peaceSpeed;
             Instantiate(redCandle, PeaceArray[candleNum], rot);
             maxCandleNum = 5;
         }
-        if (symbol == 2)
+        if (symbol == 1)
         {
             SetUpHeart();
+            redCandle.GetComponent<Melt>().speed = heartSpeed;
+            blueCandle.GetComponent<Melt>().speed = heartSpeed;
             Instantiate(redCandle, HeartArray[candleNum], rot);
             maxCandleNum = 20;
         }
-        isRedCandle = false;
+        if (symbol == 2)
+        {
+            SetUpHappy();
+            redCandle.GetComponent<Melt>().speed = happySpeed;
+            blueCandle.GetComponent<Melt>().speed = happySpeed;
+            Instantiate(redCandle, HappyArray[candleNum], rot);
+            maxCandleNum = 23;
+        }
 
 	}
 	
@@ -109,6 +124,34 @@ public class begin : MonoBehaviour {
         HeartArray[19] = new Vector3(-0.5f, 1.0f, -1.75f);
     }
 
+    public void SetUpHappy()
+    {
+        HappyArray = new Vector3[23];
+        HappyArray[0] = new Vector3(-.5f, 1.0f, 1.0f);
+        HappyArray[1] = new Vector3(.5f, 1.0f, 1.0f);
+        HappyArray[2] = new Vector3(-.75f, 1.0f, 2.0f);
+        HappyArray[3] = new Vector3(.75f, 1.0f, 2.0f);
+        HappyArray[4] = new Vector3(-1.0f, 1.0f, 3.0f);
+        HappyArray[5] = new Vector3(1.0f, 1.0f, 3.0f);
+        HappyArray[6] = new Vector3(-1.5f, 1.0f, 3.5f);
+        HappyArray[7] = new Vector3(1.5f, 1.0f, 3.5f);
+        HappyArray[8] = new Vector3(-2.5f, 1.0f, 3.0f);
+        HappyArray[9] = new Vector3(2.5f, 1.0f, 3.0f);
+        HappyArray[10] = new Vector3(-3.0f, 1.0f, 2.0f);
+        HappyArray[11] = new Vector3(3.0f, 1.0f, 2.0f);
+        HappyArray[12] = new Vector3(-3.5f, 1.0f, 1.0f);
+        HappyArray[13] = new Vector3(3.5f, 1.0f, 1.0f);
+        HappyArray[14] = new Vector3(-4.0f, 1.0f, -2.5f);
+        HappyArray[15] = new Vector3(4.0f, 1.0f, -2.5f);
+        HappyArray[16] = new Vector3(-3.0f, 1.0f, -3.25f);
+        HappyArray[17] = new Vector3(3.0f, 1.0f, -3.25f);
+        HappyArray[18] = new Vector3(-2.0f, 1.0f, -3.75f);
+        HappyArray[19] = new Vector3(2.0f, 1.0f, -3.75f);
+        HappyArray[20] = new Vector3(-1.0f, 1.0f, -3.9f);
+        HappyArray[21] = new Vector3(1.0f, 1.0f, -3.9f);
+        HappyArray[22] = new Vector3(0.0f, 1.0f, -4.0f);
+    }
+
     public void SwitchCandles()
     {
         candleNum++;
@@ -124,18 +167,22 @@ public class begin : MonoBehaviour {
         {
             if (isRedCandle)
             {
-                if (symbol == 1)
+                if (symbol == 0)
                     Instantiate(redCandle, PeaceArray[candleNum], rot);
-                if (symbol == 2)
+                if (symbol == 1)
                     Instantiate(redCandle, HeartArray[candleNum], rot);
+                if (symbol == 2)
+                    Instantiate(redCandle, HappyArray[candleNum], rot);
                 isRedCandle = !isRedCandle;
             }
             else
             {
-                if (symbol == 1)
+                if (symbol == 0)
                     Instantiate(blueCandle, PeaceArray[candleNum], rot);
-                if (symbol == 2)
+                if (symbol == 1)
                     Instantiate(blueCandle, HeartArray[candleNum], rot);
+                if (symbol == 2)
+                    Instantiate(blueCandle, HappyArray[candleNum], rot);
                 isRedCandle = !isRedCandle;
             }
         }
