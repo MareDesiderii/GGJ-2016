@@ -5595,8 +5595,8 @@ MonoBehaviour:
   rot: {x: 0, y: 0, z: 0, w: 0}
   symbol: 2
   peaceSpeed: 0.015
-  heartSpeed: 0.02
-  happySpeed: 0.015
+  heartSpeed: 0.025
+  happySpeed: 0.02
 --- !u!1 &1990396823
 GameObject:
   m_ObjectHideFlags: 0
