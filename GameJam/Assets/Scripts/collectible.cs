@@ -41,7 +41,7 @@ public class collectible : MonoBehaviour {
 				} else {
 
 					Renderer rend = cube.GetComponent<Renderer> ();
-					rend.material.shader = Sharder.Find ("Standard");
+					rend.material.shader = Shader.Find ("Standard");
 					rend.material.SetColor ("_Color", new Color (255, 115, 0));
 				}
 			}
