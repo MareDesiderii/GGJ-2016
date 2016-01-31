@@ -7,20 +7,20 @@ public class startgame : MonoBehaviour {
 
     public void LoadPeace()
     {
+		FadeBlack screen = GameObject.FindWithTag("StartScreenCanvas").GetComponent<FadeBlack>();
         sel.symbol = 0;
-        DontDestroyOnLoad(sel);
-        Application.LoadLevel(1);
+		screen.setSel(sel);
     }
     public void LoadLove()
     {
+		FadeBlack screen = GameObject.FindWithTag("StartScreenCanvas").GetComponent<FadeBlack>();
         sel.symbol = 1;
-        DontDestroyOnLoad(sel);
-        Application.LoadLevel(1);
+        screen.setSel(sel);
     }
     public void LoadHappy()
     {
+		FadeBlack screen = GameObject.FindWithTag("StartScreenCanvas").GetComponent<FadeBlack>();
         sel.symbol = 2;
-        DontDestroyOnLoad(sel);
-        Application.LoadLevel(1);
+        screen.setSel(sel);
     }
 }
