@@ -45,9 +45,8 @@ public class collectible : MonoBehaviour {
 				glow.transform.Rotate(-20, 0, 0);
 
 				GameObject flame = transform.FindChild ("Flame").gameObject;
-				flame.SetActive(true);//GetComponent<ParticleSystem>().enableEmission = true;
-				Debug.Log ("FLAME " + flame);
-
+				flame.SetActive(true);
+	
 			}
             //msg palyer for winks
             if (col.name == "BluePlayer")
