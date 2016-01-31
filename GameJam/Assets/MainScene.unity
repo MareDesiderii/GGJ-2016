@@ -4759,7 +4759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redCandle: {fileID: 150040, guid: f5112381f3d06e746916eabf42b9baed, type: 2}
   blueCandle: {fileID: 118650, guid: a45b03a3026ea484399ee90067cc5674, type: 2}
-  canv: {fileID: 1990396826}
+  endImage: {fileID: 578485567}
   rot: {x: 0, y: 90, z: 90, w: 0}
   symbol: 2
   peaceSpeed: 0.02
