@@ -4068,6 +4068,9 @@ MonoBehaviour:
   blueCandle: {fileID: 118650, guid: a45b03a3026ea484399ee90067cc5674, type: 2}
   rot: {x: 0, y: 90, z: 90, w: 0}
   symbol: 2
+  peaceSpeed: 0.02
+  heartSpeed: 0.005
+  happySpeed: 0.005
 --- !u!1 &2006869563
 GameObject:
   m_ObjectHideFlags: 0

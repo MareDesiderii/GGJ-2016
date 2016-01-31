@@ -52,7 +52,11 @@ public class Player : MonoBehaviour {
         // clamp our movment to just inside the light
         Vector3 newPos = transform.position + moveDirection;
         Vector3 oldOffset = transform.position - otherLight.transform.position;
-        Vector3 newOffset = newPos - otherLight.transform.position;
+
+        //offset from the center of the otherlight accounting for both players moves
+        Vector3 newOffset = (transform.position + moveDirection) - (otherLight.transform.position);
+        //clamp our movment to just inside the otherlight
+
         Vector3 AllowedMove = Vector3.ClampMagnitude(newOffset, maxDist) - oldOffset;
         //pull on the other player if we would be moving outside the light
         //if (IsOutsideLight(moveDirection)) 
@@ -60,7 +64,7 @@ public class Player : MonoBehaviour {
         //   // otherLight.GetComponentInParent<Player>().controller.Move(-moveDirection * Time.deltaTime * 0.3f);
         //}
 
-        controller.Move(AllowedMove * Time.deltaTime);
+        controller.Move(AllowedMove * 3 * Time.deltaTime);
     }
 
     bool IsOutsideLight(Vector3 move)
