@@ -6,7 +6,7 @@ public class begin : MonoBehaviour {
 
     public GameObject redCandle;
     public GameObject blueCandle;
-    public Canvas canv;
+    public RawImage endImage;
 
     public Quaternion rot;
     public int symbol = 0; // 0 = peace sign, 1 = heart, 2 = happy
@@ -21,6 +21,8 @@ public class begin : MonoBehaviour {
     public float peaceSpeed = 0.02f;
     public float heartSpeed = 0.005f;
     public float happySpeed = 0.005f;
+
+    private bool endPicScale = false;
 
     private Score score;
 
@@ -51,7 +53,7 @@ public class begin : MonoBehaviour {
             redCandle.GetComponent<Melt>().speed = peaceSpeed;
             blueCandle.GetComponent<Melt>().speed = peaceSpeed;
             Instantiate(redCandle, PeaceArray[candleNum], rot);
-            maxCandleNum = 11;
+            maxCandleNum = 5;
         }
         if (symbol == 1)
         {
@@ -74,37 +76,26 @@ public class begin : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        if (endPicScale == true)
+        {
+            endImage.rectTransform.sizeDelta += new Vector2(512.0f * Time.deltaTime / 2, 512.0f * Time.deltaTime / 2);
+        }
 	}
-
-    public void Star()
-    {
-        Instantiate(redCandle, new Vector3(0.0f, 1.0f, 1.0f), rot);
-        Instantiate(blueCandle, new Vector3(-.5f, 1.0f, 0.0f), rot);
-        Instantiate(redCandle, new Vector3(-1.0f, 1.0f, 0.0f), rot);
-        Instantiate(redCandle, new Vector3(0.5f, 1.0f, 0.0f), rot);
-        Instantiate(blueCandle, new Vector3(1.0f, 1.0f, 0.0f), rot);
-        Instantiate(blueCandle, new Vector3(-.5f, 1.0f, -.5f), rot);
-        Instantiate(redCandle, new Vector3(0.5f, 1.0f, -0.5f), rot);
-        Instantiate(blueCandle, new Vector3(-0.5f, 1.0f, -1.0f), rot);
-        Instantiate(redCandle, new Vector3(0.5f, 1.0f, -1.0f), rot);
-
-    }
 
     public void SetUpPeace()
     {
-        PeaceArray = new Vector3[11];
+        PeaceArray = new Vector3[5];
         PeaceArray[0] = new Vector3(0.0f, 1.0f, 4.0f);
         PeaceArray[1] = new Vector3(3.0f, 1.0f, -4.0f);
         PeaceArray[2] = new Vector3(0.0f, 1.0f, -4.0f);
         PeaceArray[3] = new Vector3(-3.0f, 1.0f, -4.0f);
         PeaceArray[4] = new Vector3(0.0f, 1.0f, -1.0f);
-        PeaceArray[5] = new Vector3(-4.0f, 1.0f, 0.0f);
-        PeaceArray[6] = new Vector3(4.0f, 1.0f, 0.0f);
-        PeaceArray[7] = new Vector3(3.0f, 1.0f, 1.0f);
-        PeaceArray[8] = new Vector3(-3.0f, 1.0f, 1.0f);
-        PeaceArray[9] = new Vector3(3.0f, 1.0f, -1.0f);
-        PeaceArray[10] = new Vector3(-3.0f, 1.0f, -1.0f);
+        //PeaceArray[5] = new Vector3(-4.0f, 1.0f, 0.0f);
+        //PeaceArray[6] = new Vector3(4.0f, 1.0f, 0.0f);
+        //PeaceArray[7] = new Vector3(3.0f, 1.0f, 1.0f);
+       // PeaceArray[8] = new Vector3(-3.0f, 1.0f, 1.0f);
+        //PeaceArray[9] = new Vector3(3.0f, 1.0f, -1.0f);
+       // PeaceArray[10] = new Vector3(-3.0f, 1.0f, -1.0f);
         int n = PeaceArray.Length;
         while (n > 1)
         {
@@ -231,10 +222,13 @@ public class begin : MonoBehaviour {
     }
     IEnumerator Finish(float waitTime)
     {
-        //canv.GetComponent<RawImage>().rectTransform.rect.Set(0, 0, 256.0f, 256.0f);
+        //canv.GetComponent<RawImage>().rectTransform.rect.Set(0, 0, 256.0f, 256.0f)
+        //endImage.rectTransform.sizeDelta += new Vector2(256.0f, 51.0f);
+        //endImage.
+        endPicScale = true;
         yield return new WaitForSeconds(waitTime);
         Debug.Log("Finish " + Time.time);
-
+        endPicScale = false;
         Application.LoadLevel(2);
     }
 }
