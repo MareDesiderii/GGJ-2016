@@ -25,7 +25,7 @@ public class collectible : MonoBehaviour {
             {
                 begin beg = FindObjectOfType<begin>();
                 beg.SendMessage("SwitchCandles");
-                GetComponent<CapsuleCollider>().isTrigger = false;
+                GetComponent<CapsuleCollider>().enabled = false;
 
 					GameObject cube = transform.FindChild ("Cube").gameObject;
 			
