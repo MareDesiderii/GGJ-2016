@@ -22,7 +22,8 @@ public class Player : MonoBehaviour {
 
     private int nWink = 0;
     private float fFullWink;
-    private float fYEyeScale = 0.0f;
+    private float fYEyeScale = 0.3f;
+    private Component whichEye;
 
     // Use this for initialization
     void Start () {
@@ -84,14 +85,14 @@ public class Player : MonoBehaviour {
         //winking
         if (nWink > 0)
         {
-            fYEyeScale = 0.1f + Mathf.PingPong(Time.time * 1.5f, 0.4f);
-            lEye.transform.localScale = new Vector3(lEye.transform.localScale.x, fFullWink - fYEyeScale, lEye.transform.localScale.z);
+            fYEyeScale = 0.1f + Mathf.PingPong(Time.time * 0.5f, 0.4f);
+            whichEye.transform.localScale = new Vector3(whichEye.transform.localScale.x, fFullWink - fYEyeScale, whichEye.transform.localScale.z);
             nWink++;
-            if (nWink > 30)
+            if (nWink > 33)
             {
                 nWink = 0;
-                fYEyeScale = 0.0f;
-                lEye.transform.localScale = new Vector3(lEye.transform.localScale.x, fFullWink, lEye.transform.localScale.z);
+                fYEyeScale = 0.2f;
+                whichEye.transform.localScale = new Vector3(whichEye.transform.localScale.x, fFullWink, whichEye.transform.localScale.z);
             }
 
         }
@@ -103,7 +104,16 @@ public class Player : MonoBehaviour {
     void WinkFlip()
     {
         //when we hit a candle, flip to see if we should wink
-        nWink = 1;//Random.Range(0, 1);
+        nWink = Random.Range(0, 5);
+        if (nWink == 3)
+        {
+            whichEye = lEye;
+        }
+        else if(nWink == 4)
+        {
+            whichEye = rEye;
+        }
+
     }
 
             bool IsOutsideLight(Vector3 move)

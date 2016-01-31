@@ -1296,15 +1296,15 @@ Transform:
   - {fileID: 2028540073}
   m_Father: {fileID: 0}
   m_RootOrder: 17
---- !u!1 &907989628
+--- !u!1 &903320982
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 907989629}
-  - 96: {fileID: 907989630}
+  - 4: {fileID: 903320983}
+  - 96: {fileID: 903320984}
   m_Layer: 0
   m_Name: Blue Trail
   m_TagString: Untagged
@@ -1312,24 +1312,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &907989629
+--- !u!4 &903320983
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 907989628}
+  m_GameObject: {fileID: 903320982}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1267160538}
   m_RootOrder: 1
---- !u!96 &907989630
+--- !u!96 &903320984
 TrailRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 907989628}
+  m_GameObject: {fileID: 903320982}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -1356,16 +1356,16 @@ TrailRenderer:
   m_Colors:
     m_Color[0]:
       serializedVersion: 2
-      rgba: 4294901760
+      rgba: 1694433280
     m_Color[1]:
       serializedVersion: 2
-      rgba: 4294901760
+      rgba: 1694433280
     m_Color[2]:
       serializedVersion: 2
-      rgba: 4294901760
+      rgba: 1694433280
     m_Color[3]:
       serializedVersion: 2
-      rgba: 4294901760
+      rgba: 1694433280
     m_Color[4]:
       serializedVersion: 2
       rgba: 16711680
@@ -3437,7 +3437,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 506235342}
-  - {fileID: 907989629}
+  - {fileID: 903320983}
   - {fileID: 1895107866}
   - {fileID: 1783530788}
   m_Father: {fileID: 0}
@@ -5572,16 +5572,16 @@ TrailRenderer:
   m_Colors:
     m_Color[0]:
       serializedVersion: 2
-      rgba: 4278190335
+      rgba: 1677721855
     m_Color[1]:
       serializedVersion: 2
-      rgba: 4278190335
+      rgba: 1677721855
     m_Color[2]:
       serializedVersion: 2
-      rgba: 4278190335
+      rgba: 1677721855
     m_Color[3]:
       serializedVersion: 2
-      rgba: 4278190335
+      rgba: 1677721855
     m_Color[4]:
       serializedVersion: 2
       rgba: 255
