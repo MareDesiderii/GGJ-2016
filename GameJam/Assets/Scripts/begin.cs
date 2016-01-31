@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class begin : MonoBehaviour {
 
     public GameObject redCandle;
     public GameObject blueCandle;
+    public Canvas canv;
 
     public Quaternion rot;
     public int symbol = 0; // 0 = peace sign, 1 = heart, 2 = happy
@@ -49,7 +51,7 @@ public class begin : MonoBehaviour {
             redCandle.GetComponent<Melt>().speed = peaceSpeed;
             blueCandle.GetComponent<Melt>().speed = peaceSpeed;
             Instantiate(redCandle, PeaceArray[candleNum], rot);
-            maxCandleNum = 5;
+            maxCandleNum = 11;
         }
         if (symbol == 1)
         {
@@ -91,12 +93,27 @@ public class begin : MonoBehaviour {
 
     public void SetUpPeace()
     {
-        PeaceArray = new Vector3[8];
+        PeaceArray = new Vector3[11];
         PeaceArray[0] = new Vector3(0.0f, 1.0f, 4.0f);
         PeaceArray[1] = new Vector3(3.0f, 1.0f, -4.0f);
         PeaceArray[2] = new Vector3(0.0f, 1.0f, -4.0f);
         PeaceArray[3] = new Vector3(-3.0f, 1.0f, -4.0f);
         PeaceArray[4] = new Vector3(0.0f, 1.0f, -1.0f);
+        PeaceArray[5] = new Vector3(-4.0f, 1.0f, 0.0f);
+        PeaceArray[6] = new Vector3(4.0f, 1.0f, 0.0f);
+        PeaceArray[7] = new Vector3(3.0f, 1.0f, 1.0f);
+        PeaceArray[8] = new Vector3(-3.0f, 1.0f, 1.0f);
+        PeaceArray[9] = new Vector3(3.0f, 1.0f, -1.0f);
+        PeaceArray[10] = new Vector3(-3.0f, 1.0f, -1.0f);
+        int n = PeaceArray.Length;
+        while (n > 1)
+        {
+            int k = Random.Range(0, n);
+            n--;
+            Vector3 temp = PeaceArray[n];
+            PeaceArray[n] = PeaceArray[k];
+            PeaceArray[k] = temp;
+        }
     }
 
     public void SetUpHeart()
@@ -120,13 +137,22 @@ public class begin : MonoBehaviour {
         HeartArray[15] = new Vector3(-2.5f, 1.0f, 3.25f);
         HeartArray[16] = new Vector3(-1.5f, 1.0f, 3.0f);
         HeartArray[17] = new Vector3(-1.0f, 1.0f, 2.5f);
-
         HeartArray[18] = new Vector3(0.5f, 1.0f, -1.75f);
         HeartArray[19] = new Vector3(-0.5f, 1.0f, -1.75f);
+        int n = HeartArray.Length;
+        while (n > 1)
+        {
+            int k = Random.Range(0, n);
+            n--;
+            Vector3 temp = HeartArray[n];
+            HeartArray[n] = HeartArray[k];
+            HeartArray[k] = temp;
+        }
     }
 
     public void SetUpHappy()
     {
+        
         HappyArray = new Vector3[23];
         HappyArray[0] = new Vector3(-.5f, 1.0f, 1.0f);
         HappyArray[1] = new Vector3(.5f, 1.0f, 1.0f);
@@ -151,7 +177,19 @@ public class begin : MonoBehaviour {
         HappyArray[20] = new Vector3(-1.0f, 1.0f, -3.9f);
         HappyArray[21] = new Vector3(1.0f, 1.0f, -3.9f);
         HappyArray[22] = new Vector3(0.0f, 1.0f, -4.0f);
+        int n = HappyArray.Length;
+        while (n > 1)
+        {
+            int k = Random.Range(0,n);
+            n--;
+            Vector3 temp = HappyArray[n];
+            HappyArray[n] = HappyArray[k];
+            HappyArray[k] = temp;
+        }
     }
+
+
+
 
     public void SwitchCandles()
     {
@@ -163,7 +201,7 @@ public class begin : MonoBehaviour {
                 Instantiate(sel);
             DontDestroyOnLoad(sel);
             DontDestroyOnLoad(score);
-            Application.LoadLevel(2);
+            StartCoroutine(Finish(2.0f));
         }
         else
         {
@@ -190,5 +228,13 @@ public class begin : MonoBehaviour {
                 score.m_Score++;
             }
         }
+    }
+    IEnumerator Finish(float waitTime)
+    {
+        //canv.GetComponent<RawImage>().rectTransform.rect.Set(0, 0, 256.0f, 256.0f);
+        yield return new WaitForSeconds(waitTime);
+        Debug.Log("Finish " + Time.time);
+
+        Application.LoadLevel(2);
     }
 }
