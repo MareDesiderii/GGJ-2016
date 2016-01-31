@@ -85,7 +85,7 @@ public class begin : MonoBehaviour {
 	void Update () {
         if (endPicScale == true)
         {
-            endImage.rectTransform.sizeDelta += new Vector2(512.0f * Time.deltaTime / 2, 512.0f * Time.deltaTime / 2);
+            endImage.rectTransform.sizeDelta += new Vector2(1024.0f * Time.deltaTime / 2, 1024.0f * Time.deltaTime / 2);
         }
 	}
 
