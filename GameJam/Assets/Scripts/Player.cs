@@ -7,6 +7,8 @@ public class Player : MonoBehaviour {
     public float speed = 10.0f;
     public float gravity = 20.0f;
 
+    public Component lEye, rEye, Mouth;
+
     public GameObject otherLight;
     public float maxDist = 0.7f;
 
@@ -74,7 +76,21 @@ public class Player : MonoBehaviour {
         controller.Move(AllowedMove * speed * Time.deltaTime);
     }
 
-    bool IsOutsideLight(Vector3 move)
+
+    void OnTriggerEnter(Collider col)
+    {
+        int coin = Random.Range(0, 1);
+        if (col.tag == "Candle Red" || col.tag == "Candle Blue" && 1 == coin)
+        {
+            if ()
+            {
+
+            }
+
+        }
+    }
+
+            bool IsOutsideLight(Vector3 move)
     {
         float dx = transform.position.x + move.x - otherLight.transform.position.x;
         float dy = transform.position.z + move.z - otherLight.transform.position.z;
