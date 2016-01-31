@@ -95,7 +95,7 @@ GameObject:
   - 4: {fileID: 67744608}
   - 212: {fileID: 67744609}
   m_Layer: 0
-  m_Name: Blue Eye Left
+  m_Name: Eye Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -255,7 +255,7 @@ GameObject:
   - 4: {fileID: 253967386}
   - 212: {fileID: 253967387}
   m_Layer: 0
-  m_Name: Red Eye Left
+  m_Name: Eye Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -313,7 +313,7 @@ GameObject:
   - 4: {fileID: 316446442}
   - 212: {fileID: 316446443}
   m_Layer: 0
-  m_Name: Blue Eye Right
+  m_Name: Eye Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1337,7 +1337,7 @@ GameObject:
   - 4: {fileID: 1049496218}
   - 212: {fileID: 1049496219}
   m_Layer: 0
-  m_Name: Red Mouth
+  m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3151,7 +3151,7 @@ GameObject:
   - 4: {fileID: 1243462534}
   - 212: {fileID: 1243462535}
   m_Layer: 0
-  m_Name: Blue Mouth
+  m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3311,6 +3311,9 @@ MonoBehaviour:
   playerID: 2
   speed: 3
   gravity: 20
+  lEye: {fileID: 67744608}
+  rEye: {fileID: 316446442}
+  Mouth: {fileID: 1243462534}
   otherLight: {fileID: 913886137}
   maxDist: 1
 --- !u!1 &1494959740
@@ -3425,7 +3428,7 @@ GameObject:
   - 4: {fileID: 1516230317}
   - 212: {fileID: 1516230318}
   m_Layer: 0
-  m_Name: Red Eye Right
+  m_Name: Eye Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5611,6 +5614,9 @@ MonoBehaviour:
   playerID: 1
   speed: 3
   gravity: 20
+  lEye: {fileID: 0}
+  rEye: {fileID: 0}
+  Mouth: {fileID: 0}
   otherLight: {fileID: 506235341}
   maxDist: 1
 --- !u!1 &2095849881
