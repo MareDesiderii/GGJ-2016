@@ -4959,7 +4959,7 @@ MonoBehaviour:
   peaceTx: {fileID: 2800000, guid: f6f9db2b4c6c2cd4f8b7bbba95f4c0e3, type: 3}
   loveTx: {fileID: 2800000, guid: 8d8a47bc142a60e479abcd32977d6c26, type: 3}
   happyTx: {fileID: 2800000, guid: f6c532a2c9576d04c9dfaf37e4041cc6, type: 3}
-  rot: {x: 0, y: 90, z: 90, w: 0}
+  rot: {x: 0, y: 0, z: 0, w: 0}
   symbol: 2
   peaceSpeed: 0.02
   heartSpeed: 0.01
