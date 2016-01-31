@@ -63,7 +63,12 @@ public class collectible : MonoBehaviour {
 					rend.material.SetColor ("_Color", new Color (255, 115, 0));
 				}
 			}
+            //msg palyer for winks
+            if (col.name == "BluePlayer")
+                col.GetComponent<Player>().SendMessage("WinkFlip");
+            if (col.name == "RedPlayer")
+                col.GetComponent<Player>().SendMessage("WinkFlip");
 
-		}
+        }
 	}
 }
