@@ -41,27 +41,13 @@ public class collectible : MonoBehaviour {
 
 				lit_sound.Play( );
 
-				GameObject cube = transform.FindChild ("Cube").gameObject;
-				GameObject glow = transform.parent.FindChild("Portal Surface").gameObject;
-				glow.transform.Rotate(-20, 0, 0);
-			
+				//GameObject glow = transform.parent.FindChild("Portal Surface").gameObject;
+			//	glow.transform.Rotate(-20, 0, 0);
 
-				Debug.Log ("CUBE " + cube);
-				cube.GetComponent<MeshRenderer> ().enabled = true;
-				if (col.name == "BluePlayer") {
+				GameObject flame = transform.FindChild ("Flame").gameObject;
+				flame.SetActive(true);//GetComponent<ParticleSystem>().enableEmission = true;
+				Debug.Log ("FLAME " + flame);
 
-
-					Renderer rend = cube.GetComponent<Renderer> ();
-
-					rend.material.shader = Shader.Find ("Standard");
-					rend.material.SetColor ("_Color", new Color (0, 74, 255));
-
-				} else {
-
-					Renderer rend = cube.GetComponent<Renderer> ();
-					rend.material.shader = Shader.Find ("Standard");
-					rend.material.SetColor ("_Color", new Color (255, 115, 0));
-				}
 			}
             //msg palyer for winks
             if (col.name == "BluePlayer")

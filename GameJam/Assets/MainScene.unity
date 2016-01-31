@@ -5248,12 +5248,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f6bd6adb0a8a1c4f981c04fe5772da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  redCandle: {fileID: 150040, guid: f5112381f3d06e746916eabf42b9baed, type: 2}
-  blueCandle: {fileID: 118650, guid: a45b03a3026ea484399ee90067cc5674, type: 2}
-  endImage: {fileID: 578485567}
-  peaceTx: {fileID: 2800000, guid: f6f9db2b4c6c2cd4f8b7bbba95f4c0e3, type: 3}
-  loveTx: {fileID: 2800000, guid: 8d8a47bc142a60e479abcd32977d6c26, type: 3}
-  happyTx: {fileID: 2800000, guid: f6c532a2c9576d04c9dfaf37e4041cc6, type: 3}
+  redCandle: {fileID: 196998, guid: b9ab9034103846f49b482f872a387505, type: 2}
+  blueCandle: {fileID: 183686, guid: efc8d8300bd0db54baa0b9b3ba794c4f, type: 2}
+  endImage: {fileID: 0}
+  peaceTx: {fileID: 0}
+  loveTx: {fileID: 0}
+  happyTx: {fileID: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
   symbol: 2
   peaceSpeed: 0.02
