@@ -23,6 +23,7 @@ public class Melt : MonoBehaviour {
 				Debug.Log ("Time to Destroy");
 				Debug.Log ("THIS " + this);
 				Destroy (this.gameObject);
+                FindObjectOfType<Score>().m_Score--;
 
 			}
 
