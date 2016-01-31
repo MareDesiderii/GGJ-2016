@@ -102,7 +102,6 @@ public class begin : MonoBehaviour {
 
 				AudioSource music = GameObject.Find( 
 					"CandleMusic" ).GetComponent<AudioSource>();
-
 				music.volume -= audioDecreaseAmount;
 				
 			}
@@ -267,7 +266,7 @@ public class begin : MonoBehaviour {
 
 		curAudioGoal = timeToNextDecreaseVol;
 		timeToNextDecreaseVol=waitTimeToNextScreen/20;
-
+		audioDecreaseAmount = music.volume/20;
 		music.volume -= audioDecreaseAmount;
 
 		yield return new WaitForSeconds( waitTimeToNextScreen );

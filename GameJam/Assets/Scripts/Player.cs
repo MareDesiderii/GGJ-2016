@@ -82,7 +82,7 @@ public class Player : MonoBehaviour {
         int coin = Random.Range(0, 1);
         if (col.tag == "Candle Red" || col.tag == "Candle Blue" && 1 == coin)
         {
-            if ()
+			if ( true )
             {
 
             }
