@@ -240,7 +240,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 112024848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -772,7 +772,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 676498163}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.02, z: 0}
+  m_LocalPosition: {x: -0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -875,7 +875,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 795732852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3413,7 +3413,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1494959740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5249,7 +5249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   redCandle: {fileID: 196998, guid: b9ab9034103846f49b482f872a387505, type: 2}
-  blueCandle: {fileID: 183686, guid: efc8d8300bd0db54baa0b9b3ba794c4f, type: 2}
+  blueCandle: {fileID: 177918, guid: efc8d8300bd0db54baa0b9b3ba794c4f, type: 2}
   endImage: {fileID: 0}
   peaceTx: {fileID: 0}
   loveTx: {fileID: 0}
@@ -5614,9 +5614,9 @@ MonoBehaviour:
   playerID: 1
   speed: 3
   gravity: 20
-  lEye: {fileID: 0}
-  rEye: {fileID: 0}
-  Mouth: {fileID: 0}
+  lEye: {fileID: 253967386}
+  rEye: {fileID: 1516230317}
+  Mouth: {fileID: 1049496218}
   otherLight: {fileID: 506235341}
   maxDist: 1
 --- !u!1 &2095849881

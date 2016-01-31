@@ -64,24 +64,24 @@ public class begin : MonoBehaviour {
         if (symbol == 0)
         {
             SetUpPeace();
-            redCandle.GetComponent<Melt>().speed = peaceSpeed;
-            blueCandle.GetComponent<Melt>().speed = peaceSpeed;
+            redCandle.transform.FindChild("NewRedCandleHolderInner").GetComponent<Melt>().speed = peaceSpeed;
+            blueCandle.transform.FindChild("NewBlueCandleHolderInner").GetComponent<Melt>().speed = peaceSpeed;
             Instantiate(redCandle, PeaceArray[candleNum], rot);
             maxCandleNum = 13;
         }
         if (symbol == 1)
         {
             SetUpHeart();
-            redCandle.GetComponent<Melt>().speed = heartSpeed;
-            blueCandle.GetComponent<Melt>().speed = heartSpeed;
+            redCandle.transform.FindChild("NewRedCandleHolderInner").GetComponent<Melt>().speed = heartSpeed;
+            blueCandle.transform.FindChild("NewBlueCandleHolderInner").GetComponent<Melt>().speed = heartSpeed;
             Instantiate(redCandle, HeartArray[candleNum], rot);
             maxCandleNum = 20;
         }
         if (symbol == 2)
         {
             SetUpHappy();
-            redCandle.GetComponent<Melt>().speed = happySpeed;
-            blueCandle.GetComponent<Melt>().speed = happySpeed;
+            redCandle.transform.FindChild("NewRedCandleHolderInner").GetComponent<Melt>().speed = happySpeed;
+            blueCandle.transform.FindChild("NewBlueCandleHolderInner").GetComponent<Melt>().speed = happySpeed;
             Instantiate(redCandle, HappyArray[candleNum], rot);
             maxCandleNum = 23;
         }
