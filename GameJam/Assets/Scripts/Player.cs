@@ -83,12 +83,12 @@ public class Player : MonoBehaviour {
 
 
         //winking
-        if (nWink > 1)
+        if (nWink > 0)
         {
             fYEyeScale = 0.1f + Mathf.PingPong(Time.time * 0.5f, 0.4f);
             whichEye.transform.localScale = new Vector3(whichEye.transform.localScale.x, fFullWink - fYEyeScale, whichEye.transform.localScale.z);
             nWink++;
-            if (nWink > 30)
+            if (nWink > 33)
             {
                 nWink = 0;
                 fYEyeScale = 0.2f;
@@ -104,12 +104,12 @@ public class Player : MonoBehaviour {
     void WinkFlip()
     {
         //when we hit a candle, flip to see if we should wink
-        nWink = Random.Range(0, 3);
-        if (nWink == 1)
+        nWink = Random.Range(0, 5);
+        if (nWink == 3)
         {
             whichEye = lEye;
         }
-        else
+        else if(nWink == 4)
         {
             whichEye = rEye;
         }
