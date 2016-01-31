@@ -49,7 +49,12 @@ public class collectible : MonoBehaviour {
 				Debug.Log ("FLAME " + flame);
 
 			}
+            //msg palyer for winks
+            if (col.name == "BluePlayer")
+                col.GetComponent<Player>().SendMessage("WinkFlip");
+            if (col.name == "RedPlayer")
+                col.GetComponent<Player>().SendMessage("WinkFlip");
 
-		}
+        }
 	}
 }

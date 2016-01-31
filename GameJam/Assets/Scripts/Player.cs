@@ -19,7 +19,8 @@ public class Player : MonoBehaviour {
 
     private string horizontal;
     private string vertical;
-    private int introSteps = 0;
+
+    private int nWink = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -74,20 +75,27 @@ public class Player : MonoBehaviour {
         Vector3 AllowedMove = Vector3.ClampMagnitude(newOffset, maxDist) - oldOffset;
 
         controller.Move(AllowedMove * speed * Time.deltaTime);
-    }
 
 
-    void OnTriggerEnter(Collider col)
-    {
-        int coin = Random.Range(0, 1);
-        if (col.tag == "Candle Red" || col.tag == "Candle Blue" && 1 == coin)
+        //winking
+        if (nWink > 0)
         {
-			if ( true )
-            {
-
-            }
-
+            float fYEyeScale = 0.1f + Mathf.PingPong(Time.time * 2, 0.5f);
+            lEye.transform.localScale = new Vector3(0, fYEyeScale, 0);
+            if (nWink > 120)
+                nWink = 0;
+            nWink++;
         }
+
+
+
+    }
+    
+    void WinkFlip()
+    {
+        //when we hit a candle, flip to see if we should wink
+        Debug.Log("Wink Flippin@!");
+            nWink = Random.Range(0, 1);
     }
 
             bool IsOutsideLight(Vector3 move)
