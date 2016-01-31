@@ -24,21 +24,21 @@ public class begin : MonoBehaviour {
 		//rot = new Quaternion (0.0f, 90.0f, 90.0f, 0.0f);
         //Star();
         
-        selection sel = new selection();
-        if (FindObjectOfType<selection>() != null)
-        {
-            sel = FindObjectOfType<selection>();
-            symbol = sel.symbol;
-            Debug.Log("SDLFK");
-        }
-        else
-        {
-            Debug.Log("stuff");
-            // VVVV this is not workign good
-            GameObject s = GameObject.Instantiate(Resources.Load("Objects/selection", typeof(GameObject))) as GameObject;// (GameObject)Resources.Load("Assets/Objects/selection", typeof(GameObject));
-            symbol = s.GetComponent<selection>().symbol;
-            //symbol = sel.symbol;
-        }
+//       selection sel = new selection();
+//       if (FindObjectOfType<selection>() != null)
+//       {
+//           sel = FindObjectOfType<selection>();
+//           symbol = sel.symbol;
+//           Debug.Log("SDLFK");
+//       }
+//       else
+//       {
+//           Debug.Log("stuff");
+//           // VVVV this is not workign good
+//           GameObject s = GameObject.Instantiate(Resources.Load("Objects/selection", typeof(GameObject))) as GameObject;// (GameObject)Resources.Load("Assets/Objects/selection", typeof(GameObject));
+//           symbol = s.GetComponent<selection>().symbol;
+//           //symbol = sel.symbol;
+//       }
         if (symbol == 0)
         {
             SetUpPeace();
