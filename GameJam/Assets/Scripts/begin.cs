@@ -233,7 +233,7 @@ public class begin : MonoBehaviour {
 		} else if (spawnedCandleNum < maxCandleNum) {
 			{
 				int more = Random.Range (1, maxCandlesToSpawn);
-				Debug.Log ("MORE " + more);
+			
 				for (int x = 0; x < more; x++) {
 					if (spawnedCandleNum < maxCandleNum) {
 
