@@ -8,6 +8,10 @@ public class begin : MonoBehaviour {
     public GameObject blueCandle;
     public RawImage endImage;
 
+    public Texture peaceTx;
+    public Texture loveTx;
+    public Texture happyTx;
+
     public Quaternion rot;
     public int symbol = 0; // 0 = peace sign, 1 = heart, 2 = happy
     private Vector3[] PeaceArray;
@@ -90,8 +94,8 @@ public class begin : MonoBehaviour {
         PeaceArray[2] = new Vector3(0.0f, 1.0f, -4.0f);
         PeaceArray[3] = new Vector3(-3.0f, 1.0f, -3.5f);
         PeaceArray[4] = new Vector3(0.0f, 1.0f, -1.0f);
-        //PeaceArray[5] = new Vector3(-4.0f, 1.0f, 0.0f);
-        //PeaceArray[6] = new Vector3(4.0f, 1.0f, 0.0f);
+        PeaceArray[5] = new Vector3(-4.0f, 1.0f, 0.0f);
+        PeaceArray[6] = new Vector3(4.0f, 1.0f, 0.0f);
         PeaceArray[7] = new Vector3(3.5f, 1.0f, 2f);
         PeaceArray[8] = new Vector3(-3.5f, 1.0f, 2f);
         PeaceArray[9] = new Vector3(3.5f, 1.0f, -2f);
@@ -228,6 +232,12 @@ public class begin : MonoBehaviour {
         //endImage.rectTransform.sizeDelta += new Vector2(256.0f, 51.0f);
         //endImage.
         endPicScale = true;
+        if(symbol == 0)
+            endImage.texture = peaceTx;
+        if (symbol == 1)
+            endImage.texture = loveTx;
+        if (symbol == 2)
+            endImage.texture = happyTx;
         yield return new WaitForSeconds(waitTime);
         Debug.Log("Finish " + Time.time);
         endPicScale = false;
