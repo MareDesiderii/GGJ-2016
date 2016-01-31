@@ -23,8 +23,9 @@ public class Melt : MonoBehaviour {
 				Debug.Log ("Time to Destroy");
 				Debug.Log ("THIS " + this);
 				Destroy (this.gameObject);
+				AudioSource candle_out = GameObject.Find( "SoundCandleOut" ).GetComponent<AudioSource>();
+				candle_out.Play();
                 FindObjectOfType<Score>().m_Score--;
-
 			}
 
 		}

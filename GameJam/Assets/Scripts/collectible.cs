@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class collectible : MonoBehaviour {
 
 	// Use this for initialization
@@ -14,16 +15,31 @@ public class collectible : MonoBehaviour {
 	}
 
     void OnTriggerEnter(Collider col)
-	{
-		if (col.tag == "Player") {
-			Debug.Log (col.name);
-			Debug.Log (name);
-			//Destroy(gameObject);
-			if ((col.name == "RedPlayer" && name == "Candle Red")
-			    || (col.name == "BluePlayer" && name == "Candle Blue")) {
-				begin beg = FindObjectOfType<begin> ();
-				beg.SendMessage ("SwitchCandles");
-				GetComponent<CapsuleCollider> ().enabled = false;
+    {
+        if (col.tag == "Player")
+        {
+            Debug.Log(col.name);
+            Debug.Log(name);
+            //Destroy(gameObject);
+            if ((col.name == "RedPlayer" && name == "Candle Red")
+             || (col.name == "BluePlayer" && name == "Candle Blue"))
+            {
+                begin beg = FindObjectOfType<begin>();
+                beg.SendMessage("SwitchCandles");
+                GetComponent<CapsuleCollider>().enabled = false;
+				AudioSource lit_sound;
+				if ( col.name == "RedPlayer" )
+				{
+					lit_sound = GameObject.Find( 
+						"SoundSuccess1" ).GetComponent<AudioSource>();
+				}
+				else
+				{
+					lit_sound = GameObject.Find( 
+						"SoundSuccess2" ).GetComponent<AudioSource>();
+				}
+
+				lit_sound.Play( );
 
 				GameObject cube = transform.FindChild ("Cube").gameObject;
 			
