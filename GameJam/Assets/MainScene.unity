@@ -5597,6 +5597,7 @@ MonoBehaviour:
   peaceSpeed: 0.02
   heartSpeed: 0.01
   happySpeed: 0.01
+  maxCandlesToSpawn: 2
 --- !u!1 &1990396823
 GameObject:
   m_ObjectHideFlags: 0

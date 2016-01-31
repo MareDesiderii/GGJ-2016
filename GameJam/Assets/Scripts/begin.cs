@@ -22,10 +22,13 @@ public class begin : MonoBehaviour {
     private bool isRedCandle;
     private int candleNum = 0;
     private int maxCandleNum = 0;
+	private int spawnedCandleNum = 1;
 
     public float peaceSpeed = 0.02f;
     public float heartSpeed = 0.01f;
     public float happySpeed = 0.01f;
+
+	private int maxCandlesToSpawn = 1;
 
     private bool endPicScale = false;
 
@@ -69,6 +72,8 @@ public class begin : MonoBehaviour {
             blueCandle.transform.FindChild("NewBlueCandleHolderInner").GetComponent<Melt>().speed = peaceSpeed;
             Instantiate(redCandle, PeaceArray[candleNum], rot);
             maxCandleNum = 13;
+			spawnedCandleNum = 1;
+			maxCandlesToSpawn = 2;
         }
         if (symbol == 1)
         {
@@ -77,6 +82,8 @@ public class begin : MonoBehaviour {
             blueCandle.transform.FindChild("NewBlueCandleHolderInner").GetComponent<Melt>().speed = heartSpeed;
             Instantiate(redCandle, HeartArray[candleNum], rot);
             maxCandleNum = 20;
+			spawnedCandleNum = 1;
+			maxCandlesToSpawn = 3;
         }
         if (symbol == 2)
         {
@@ -85,6 +92,8 @@ public class begin : MonoBehaviour {
             blueCandle.transform.FindChild("NewBlueCandleHolderInner").GetComponent<Melt>().speed = happySpeed;
             Instantiate(redCandle, HappyArray[candleNum], rot);
             maxCandleNum = 23;
+			spawnedCandleNum = 1;
+			maxCandlesToSpawn = 4;
         }
 
 	}
@@ -213,41 +222,46 @@ public class begin : MonoBehaviour {
 
     public void SwitchCandles()
     {
-        candleNum++;
-        if (candleNum == maxCandleNum)
-        {
-            selection sel = FindObjectOfType<selection>();
-            if (sel == null)
-                Instantiate(sel);
-            DontDestroyOnLoad(sel);
-            DontDestroyOnLoad(score);
-            StartCoroutine(Finish());
-        }
-        else
-        {
-            if (isRedCandle)
-            {
-                if (symbol == 0)
-                    Instantiate(redCandle, PeaceArray[candleNum], rot);
-                if (symbol == 1)
-                    Instantiate(redCandle, HeartArray[candleNum], rot);
-                if (symbol == 2)
-                    Instantiate(redCandle, HappyArray[candleNum], rot);
-                isRedCandle = !isRedCandle;
-                score.m_Score++;
-            }
-            else
-            {
-                if (symbol == 0)
-                    Instantiate(blueCandle, PeaceArray[candleNum], rot);
-                if (symbol == 1)
-                    Instantiate(blueCandle, HeartArray[candleNum], rot);
-                if (symbol == 2)
-                    Instantiate(blueCandle, HappyArray[candleNum], rot);
-                isRedCandle = !isRedCandle;
-                score.m_Score++;
-            }
-        }
+		candleNum++; //Number of times collision has called this 
+		if (candleNum == maxCandleNum) {
+			selection sel = FindObjectOfType<selection> ();
+			if (sel == null)
+				Instantiate (sel);
+			DontDestroyOnLoad (sel);
+			DontDestroyOnLoad (score);
+			StartCoroutine (Finish ());
+		} else if (spawnedCandleNum < maxCandleNum) {
+			{
+				int more = Random.Range (1, maxCandlesToSpawn);
+				Debug.Log ("MORE " + more);
+				for (int x = 0; x < more; x++) {
+					if (spawnedCandleNum < maxCandleNum) {
+
+						if (isRedCandle) {
+							if (symbol == 0)
+								Instantiate (redCandle, PeaceArray [spawnedCandleNum], rot);
+							if (symbol == 1)
+								Instantiate (redCandle, HeartArray [spawnedCandleNum], rot);
+							if (symbol == 2)
+								Instantiate (redCandle, HappyArray [spawnedCandleNum], rot);
+							isRedCandle = !isRedCandle;
+							score.m_Score++;
+							spawnedCandleNum++;
+						} else {
+							if (symbol == 0)
+								Instantiate (blueCandle, PeaceArray [spawnedCandleNum], rot);
+							if (symbol == 1)
+								Instantiate (blueCandle, HeartArray [spawnedCandleNum], rot);
+							if (symbol == 2)
+								Instantiate (blueCandle, HappyArray [spawnedCandleNum], rot);
+							isRedCandle = !isRedCandle;
+							score.m_Score++;
+							spawnedCandleNum++;
+						}
+					}
+				}
+			}
+		}
     }
     IEnumerator Finish()
     {
