@@ -4760,9 +4760,13 @@ MonoBehaviour:
   redCandle: {fileID: 150040, guid: f5112381f3d06e746916eabf42b9baed, type: 2}
   blueCandle: {fileID: 118650, guid: a45b03a3026ea484399ee90067cc5674, type: 2}
   endImage: {fileID: 578485567}
-  peaceTx: {fileID: 2800000, guid: c0b2272087edb504da08d1c31c53479b, type: 3}
-  loveTx: {fileID: 2800000, guid: 4129dcb275343a74cb8b17ed3d862e8f, type: 3}
-  happyTx: {fileID: 2800000, guid: b063e7ae8f486044090e986c8926d02f, type: 3}
+  WinSpritesArray:
+  - {fileID: 21300000, guid: 4b82fc5df9f212f44a21d7a0063322c0, type: 3}
+  - {fileID: 21300002, guid: 4b82fc5df9f212f44a21d7a0063322c0, type: 3}
+  - {fileID: 21300004, guid: 4b82fc5df9f212f44a21d7a0063322c0, type: 3}
+  peaceTx: {fileID: 0}
+  loveTx: {fileID: 0}
+  happyTx: {fileID: 0}
   rot: {x: 0, y: 90, z: 90, w: 0}
   symbol: 2
   peaceSpeed: 0.02

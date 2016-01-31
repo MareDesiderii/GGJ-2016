@@ -8,6 +8,9 @@ public class begin : MonoBehaviour {
     public GameObject blueCandle;
     public RawImage endImage;
 
+
+    public Sprite[] WinSpritesArray;
+
     public Texture peaceTx;
     public Texture loveTx;
     public Texture happyTx;
@@ -32,9 +35,12 @@ public class begin : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//rot = new Quaternion (redCandle.transform.rotation.x, redCandle.transform.rotation.y, redCandle.transform.rotation.z, 0.0);
+        //rot = new Quaternion (redCandle.transform.rotation.x, redCandle.transform.rotation.y, redCandle.transform.rotation.z, 0.0);
 
-		//rot = new Quaternion (0.0f, 90.0f, 90.0f, 0.0f);
+        //rot = new Quaternion (0.0f, 90.0f, 90.0f, 0.0f);
+
+        GetComponent<SpriteRenderer>().sprite = WinSpritesArray[2];
+
         //Star();
         score = FindObjectOfType<Score>();
         selection sel = new selection();
