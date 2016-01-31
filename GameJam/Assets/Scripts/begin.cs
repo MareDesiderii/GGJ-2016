@@ -16,6 +16,10 @@ public class begin : MonoBehaviour {
     private int candleNum = 0;
     private int maxCandleNum = 0;
 
+    public float peaceSpeed = 0.02f;
+    public float heartSpeed = 0.005f;
+    public float happySpeed = 0.005f;
+
 	// Use this for initialization
 	void Start () {
 
@@ -29,31 +33,36 @@ public class begin : MonoBehaviour {
         {
             sel = FindObjectOfType<selection>();
             symbol = sel.symbol;
-            Debug.Log("SDLFK");
         }
         else
         {
-            Debug.Log("stuff");
+            Debug.Log("Starting from main, wont go to end scene");
             // VVVV this is not workign good
-            GameObject s = GameObject.Instantiate(Resources.Load("Objects/selection", typeof(GameObject))) as GameObject;// (GameObject)Resources.Load("Assets/Objects/selection", typeof(GameObject));
-            symbol = s.GetComponent<selection>().symbol;
+            //GameObject s = GameObject.Instantiate(Resources.Load("Objects/selection", typeof(GameObject))) as GameObject;// (GameObject)Resources.Load("Assets/Objects/selection", typeof(GameObject));
+            //symbol = s.GetComponent<selection>().symbol;
             //symbol = sel.symbol;
         }
         if (symbol == 0)
         {
             SetUpPeace();
+            redCandle.GetComponent<Melt>().speed = peaceSpeed;
+            blueCandle.GetComponent<Melt>().speed = peaceSpeed;
             Instantiate(redCandle, PeaceArray[candleNum], rot);
             maxCandleNum = 5;
         }
         if (symbol == 1)
         {
             SetUpHeart();
+            redCandle.GetComponent<Melt>().speed = heartSpeed;
+            blueCandle.GetComponent<Melt>().speed = heartSpeed;
             Instantiate(redCandle, HeartArray[candleNum], rot);
             maxCandleNum = 20;
         }
         if (symbol == 2)
         {
             SetUpHappy();
+            redCandle.GetComponent<Melt>().speed = happySpeed;
+            blueCandle.GetComponent<Melt>().speed = happySpeed;
             Instantiate(redCandle, HappyArray[candleNum], rot);
             maxCandleNum = 23;
         }
