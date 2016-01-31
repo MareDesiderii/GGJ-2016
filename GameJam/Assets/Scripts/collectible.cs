@@ -41,8 +41,8 @@ public class collectible : MonoBehaviour {
 
 				lit_sound.Play( );
 
-				//GameObject glow = transform.parent.FindChild("Portal Surface").gameObject;
-			//	glow.transform.Rotate(-20, 0, 0);
+				GameObject glow = transform.parent.parent.FindChild("Portal Surface").gameObject;
+				glow.transform.Rotate(-20, 0, 0);
 
 				GameObject flame = transform.FindChild ("Flame").gameObject;
 				flame.SetActive(true);//GetComponent<ParticleSystem>().enableEmission = true;
