@@ -253,6 +253,8 @@ public class begin : MonoBehaviour {
         //canv.GetComponent<RawImage>().rectTransform.rect.Set(0, 0, 256.0f, 256.0f)
         //endImage.rectTransform.sizeDelta += new Vector2(256.0f, 51.0f);
         //endImage.
+
+
         endPicScale = true;
         if (symbol == 0)
             endImage.texture = peaceTx;
@@ -261,8 +263,16 @@ public class begin : MonoBehaviour {
         if (symbol == 2)
             endImage.texture = happyTx;
 
-		AudioSource music = GameObject.Find( 
-			"CandleMusic" ).GetComponent<AudioSource>();
+
+		GameObject[] candles = GameObject.FindGameObjectsWithTag ("Candle");
+		foreach (GameObject ob in candles) {
+
+
+			ob.transform.FindChild("Flare").gameObject.SetActive (true);
+		}
+
+		AudioSource music= GameObject.Find (
+			                   "CandleMusic").GetComponent<AudioSource> ();
 
 		curAudioGoal = timeToNextDecreaseVol;
 		timeToNextDecreaseVol=waitTimeToNextScreen/20;
