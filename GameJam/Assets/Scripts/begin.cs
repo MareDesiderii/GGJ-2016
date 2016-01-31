@@ -30,6 +30,13 @@ public class begin : MonoBehaviour {
 
     private Score score;
 
+	private float waitTimeToNextScreen=2.0f;
+	private float timeToNextDecreaseVol=0; //reset in Finish()
+	private float curAudioGoal = 0; // reset in Finish()
+	private float audioDecreaseAmount=0;
+	private float elapsedTimeToNextScreen=0;
+
+
 	// Use this for initialization
 	void Start () {
         //rot = new Quaternion (redCandle.transform.rotation.x, redCandle.transform.rotation.y, redCandle.transform.rotation.z, 0.0);
@@ -85,7 +92,19 @@ public class begin : MonoBehaviour {
 	void Update () {
         if (endPicScale == true)
         {
-            endImage.rectTransform.sizeDelta += new Vector2(1024.0f * Time.deltaTime / 2, 1024.0f * Time.deltaTime / 2);
+			endImage.rectTransform.sizeDelta += new Vector2(1024.0f * Time.deltaTime / 2, 1024.0f * Time.deltaTime / 2);
+            
+
+			elapsedTimeToNextScreen += Time.deltaTime;
+			if ( elapsedTimeToNextScreen > curAudioGoal )
+			{
+				curAudioGoal += timeToNextDecreaseVol;		
+
+				AudioSource music = GameObject.Find( 
+					"CandleMusic" ).GetComponent<AudioSource>();
+				music.volume -= audioDecreaseAmount;
+				
+			}
         }
 	}
 
@@ -201,7 +220,7 @@ public class begin : MonoBehaviour {
                 Instantiate(sel);
             DontDestroyOnLoad(sel);
             DontDestroyOnLoad(score);
-            StartCoroutine(Finish(2.0f));
+            StartCoroutine(Finish());
         }
         else
         {
@@ -229,7 +248,7 @@ public class begin : MonoBehaviour {
             }
         }
     }
-    IEnumerator Finish(float waitTime)
+    IEnumerator Finish()
     {
         //canv.GetComponent<RawImage>().rectTransform.rect.Set(0, 0, 256.0f, 256.0f)
         //endImage.rectTransform.sizeDelta += new Vector2(256.0f, 51.0f);
@@ -241,7 +260,16 @@ public class begin : MonoBehaviour {
             endImage.texture = loveTx;
         if (symbol == 2)
             endImage.texture = happyTx;
-        yield return new WaitForSeconds(waitTime);
+
+		AudioSource music = GameObject.Find( 
+			"CandleMusic" ).GetComponent<AudioSource>();
+
+		curAudioGoal = timeToNextDecreaseVol;
+		timeToNextDecreaseVol=waitTimeToNextScreen/20;
+		audioDecreaseAmount = music.volume/20;
+		music.volume -= audioDecreaseAmount;
+
+		yield return new WaitForSeconds( waitTimeToNextScreen );
         Debug.Log("Finish " + Time.time);
         endPicScale = false;
         Application.LoadLevel(2);
