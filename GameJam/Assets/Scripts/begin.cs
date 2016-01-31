@@ -6,11 +6,12 @@ public class begin : MonoBehaviour {
 
     public GameObject redCandle;
     public GameObject blueCandle;
-    public RawImage endImage;
 
-    public Texture peaceTx;
-    public Texture loveTx;
-    public Texture happyTx;
+    public Component peaceCom;
+    public Component loveCom;
+    public Component happyCom;
+
+    private SpriteRenderer endImage;
 
     public Quaternion rot;
     public int symbol = 0; // 0 = peace sign, 1 = heart, 2 = happy
@@ -90,11 +91,11 @@ public class begin : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //win fx
         if (endPicScale == true)
         {
-			endImage.rectTransform.sizeDelta += new Vector2(1024.0f * Time.deltaTime / 2, 1024.0f * Time.deltaTime / 2);
+			endImage.color += new Color(0,0,0,Time.deltaTime/3.0f);
             
-
 			elapsedTimeToNextScreen += Time.deltaTime;
 			if ( elapsedTimeToNextScreen > curAudioGoal )
 			{
@@ -257,20 +258,20 @@ public class begin : MonoBehaviour {
 
         endPicScale = true;
         if (symbol == 0)
-            endImage.texture = peaceTx;
+            endImage = peaceCom.GetComponent<SpriteRenderer>();
         if (symbol == 1)
-            endImage.texture = loveTx;
+            endImage = loveCom.GetComponent<SpriteRenderer>();
         if (symbol == 2)
-            endImage.texture = happyTx;
+            endImage = happyCom.GetComponent<SpriteRenderer>();
 
-
+        //sparks
 		GameObject[] candles = GameObject.FindGameObjectsWithTag ("Candle");
 		foreach (GameObject ob in candles) {
 
 
 			ob.transform.FindChild("Flare").gameObject.SetActive (true);
 		}
-
+        //win sound
 		AudioSource music= GameObject.Find (
 			                   "CandleMusic").GetComponent<AudioSource> ();
 

@@ -83,7 +83,7 @@ public class Player : MonoBehaviour {
 
 
         //winking
-        if (nWink > 0)
+        if (nWink > 2)
         {
             fYEyeScale = 0.1f + Mathf.PingPong(Time.time * 0.5f, 0.4f);
             whichEye.transform.localScale = new Vector3(whichEye.transform.localScale.x, fFullWink - fYEyeScale, whichEye.transform.localScale.z);
@@ -112,6 +112,9 @@ public class Player : MonoBehaviour {
         else if(nWink == 4)
         {
             whichEye = rEye;
+        }else
+        {
+            nWink = 0;
         }
 
     }
