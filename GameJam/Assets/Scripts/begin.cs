@@ -8,6 +8,10 @@ public class begin : MonoBehaviour {
     public GameObject blueCandle;
     public RawImage endImage;
 
+    public Texture peaceTx;
+    public Texture loveTx;
+    public Texture happyTx;
+
     public Quaternion rot;
     public int symbol = 0; // 0 = peace sign, 1 = heart, 2 = happy
     private Vector3[] PeaceArray;
@@ -28,9 +32,12 @@ public class begin : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//rot = new Quaternion (redCandle.transform.rotation.x, redCandle.transform.rotation.y, redCandle.transform.rotation.z, 0.0);
+        //rot = new Quaternion (redCandle.transform.rotation.x, redCandle.transform.rotation.y, redCandle.transform.rotation.z, 0.0);
 
-		//rot = new Quaternion (0.0f, 90.0f, 90.0f, 0.0f);
+        //rot = new Quaternion (0.0f, 90.0f, 90.0f, 0.0f);
+
+        //GetComponent<SpriteRenderer>().sprite = WinSpritesArray[2];
+
         //Star();
         score = FindObjectOfType<Score>();
         selection sel = new selection();
@@ -228,6 +235,12 @@ public class begin : MonoBehaviour {
         //endImage.rectTransform.sizeDelta += new Vector2(256.0f, 51.0f);
         //endImage.
         endPicScale = true;
+        if (symbol == 0)
+            endImage.texture = peaceTx;
+        if (symbol == 1)
+            endImage.texture = loveTx;
+        if (symbol == 2)
+            endImage.texture = happyTx;
         yield return new WaitForSeconds(waitTime);
         Debug.Log("Finish " + Time.time);
         endPicScale = false;
