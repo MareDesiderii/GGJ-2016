@@ -52,6 +52,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &146150
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 478256}
+  - 108: {fileID: 10858006}
+  - 114: {fileID: 11451432}
+  m_Layer: 0
+  m_Name: Halo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &177918
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +176,8 @@ Transform:
   m_LocalRotation: {x: 0.7071066, y: 0, z: 0, w: -0.70710695}
   m_LocalPosition: {x: 0, y: 1.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 10}
-  m_Children: []
+  m_Children:
+  - {fileID: 478256}
   m_Father: {fileID: 443568}
   m_RootOrder: 0
 --- !u!4 &451306
@@ -201,6 +219,18 @@ Transform:
   - {fileID: 487658}
   - {fileID: 453692}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &478256
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146150}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.03}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 447804}
   m_RootOrder: 0
 --- !u!4 &487658
 Transform:
@@ -317,6 +347,39 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!108 &10858006
+Light:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146150}
+  m_Enabled: 1
+  serializedVersion: 6
+  m_Type: 2
+  m_Color: {r: 0, g: 0.884, b: 1, a: 1}
+  m_Intensity: 0.5
+  m_Range: 0.5
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 1
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 2
+  m_BounceIntensity: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_AreaSize: {x: 0.1, y: 0.1}
 --- !u!114 &11415740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -328,7 +391,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 245c4571626223c4c9ffcea7c3f642e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.02
+  speed: 0.01
+--- !u!114 &11451432
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aeff2bd9d4d3bb4fb44852147f9fc29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PULSE_RANGE: 0.5
+  PULSE_SPEED: 1
+  PULSE_MINIMUM: 0.4
 --- !u!114 &11461336
 MonoBehaviour:
   m_ObjectHideFlags: 1

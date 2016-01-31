@@ -1,16 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 
 public class collectible : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+
+		StartCoroutine (Flicker ());
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+
+	}
+
+
+
+	IEnumerator Flicker()
+	{
+		for (int x=1;x<5;x++) {
+			gameObject.GetComponent<Renderer> ().enabled = true;
+			yield return new WaitForSeconds (.01f*x);
+			gameObject.GetComponent<Renderer> ().enabled = false;
+			yield return new WaitForSeconds (.01f);
+		}
+		gameObject.GetComponent<Renderer> ().enabled = true;
 
 	}
 
