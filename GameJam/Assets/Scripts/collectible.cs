@@ -40,18 +40,28 @@ public class collectible : MonoBehaviour {
 				}
 
 				lit_sound.Play( );
-								
-				//AudioSource candle_out = GameObject.Find( "CandleOut" ).GetComponent<AudioSource>();
-				//candle_out.Play();
 
 				GameObject cube = transform.FindChild ("Cube").gameObject;
 			
 
 				Debug.Log ("CUBE " + cube);
 				cube.GetComponent<MeshRenderer> ().enabled = true;
+				if (col.name == "BluePlayer") {
 
-            }
 
-        }
-    }
+					Renderer rend = cube.GetComponent<Renderer> ();
+
+					rend.material.shader = Shader.Find ("Standard");
+					rend.material.SetColor ("_Color", new Color (0, 74, 255));
+
+				} else {
+
+					Renderer rend = cube.GetComponent<Renderer> ();
+					rend.material.shader = Shader.Find ("Standard");
+					rend.material.SetColor ("_Color", new Color (255, 115, 0));
+				}
+			}
+
+		}
+	}
 }

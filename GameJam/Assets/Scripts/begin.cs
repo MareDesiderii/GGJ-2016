@@ -20,14 +20,15 @@ public class begin : MonoBehaviour {
     public float heartSpeed = 0.005f;
     public float happySpeed = 0.005f;
 
+    private Score score;
+
 	// Use this for initialization
 	void Start () {
-
 		//rot = new Quaternion (redCandle.transform.rotation.x, redCandle.transform.rotation.y, redCandle.transform.rotation.z, 0.0);
 
 		//rot = new Quaternion (0.0f, 90.0f, 90.0f, 0.0f);
         //Star();
-        
+        score = FindObjectOfType<Score>();
         selection sel = new selection();
         if (FindObjectOfType<selection>() != null)
         {
@@ -161,6 +162,7 @@ public class begin : MonoBehaviour {
             if (sel == null)
                 Instantiate(sel);
             DontDestroyOnLoad(sel);
+            DontDestroyOnLoad(score);
             Application.LoadLevel(2);
         }
         else
@@ -174,6 +176,7 @@ public class begin : MonoBehaviour {
                 if (symbol == 2)
                     Instantiate(redCandle, HappyArray[candleNum], rot);
                 isRedCandle = !isRedCandle;
+                score.m_Score++;
             }
             else
             {
@@ -184,6 +187,7 @@ public class begin : MonoBehaviour {
                 if (symbol == 2)
                     Instantiate(blueCandle, HappyArray[candleNum], rot);
                 isRedCandle = !isRedCandle;
+                score.m_Score++;
             }
         }
     }

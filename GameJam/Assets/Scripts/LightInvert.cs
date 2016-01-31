@@ -11,7 +11,7 @@ public class LightInvert : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		GameObject parent = this.transform.parent.gameObject;
-		Vector3 tr = new Vector3 (parent.transform.position.x*-1,1.0f, parent.transform.position.z*-1);
+		Vector3 tr = new Vector3 (parent.transform.position.x*-1.0f,1.0f, parent.transform.position.z*-1.0f);
 		transform.position = tr;
 	}
 }

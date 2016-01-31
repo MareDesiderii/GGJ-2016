@@ -7,6 +7,8 @@ TagManager:
   - Collectible
   - Candle
   - New Tag
+  - Red
+  - Blue
   layers:
   - Default
   - TransparentFX
